@@ -225,7 +225,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -337,11 +337,10 @@ const Footer = () => {
   );
 };
 
-// Section 1: Hero Section
+// Section 1: Hero Section - No Scroll Indicator
 const HeroSection = () => {
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
 
   return (
@@ -416,12 +415,7 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      <div className="ip-scroll-indicator" onClick={() => {
-        document.getElementById('ip-showcase-strip').scrollIntoView({ behavior: 'smooth' });
-      }}>
-        <span>Scroll to explore</span>
-        <div className="ip-scroll-line"></div>
-      </div>
+      {/* Scroll indicator removed */}
     </div>
   );
 };

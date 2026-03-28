@@ -1,9 +1,12 @@
-// SEO.js - Updated with Consistent Navbar and Footer
+// SEO.js - Updated with Consistent Navbar and Footer - No Hover Effects
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import './SEO.css';
 import logo from "../image/logo.jpg";
+
+// Import local images
+import splitScreenImage from "../image/Omnichannel Marketing That Works.jpg";
 
 // Section Wrapper with scroll animation
 const Section = ({ children, className = '', id = '' }) => {
@@ -225,7 +228,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -237,7 +240,7 @@ const Navbar = () => {
   );
 };
 
-// Footer Component - SAME AS ALL OTHER PAGES
+// Footer Component - SAME AS ALL OTHER PAGES - No Hover Effects
 const Footer = () => {
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
@@ -337,11 +340,10 @@ const Footer = () => {
   );
 };
 
-// Section 1: Hero Section
+// Section 1: Hero Section - No background image, no scroll indicator
 const HeroSection = () => {
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
 
   return (
@@ -410,18 +412,11 @@ const HeroSection = () => {
           </button>
         </motion.div>
       </div>
-
-      <div className="seo-scroll-indicator" onClick={() => {
-        document.getElementById('seo-services').scrollIntoView({ behavior: 'smooth' });
-      }}>
-        <span>Scroll to explore</span>
-        <div className="seo-scroll-line"></div>
-      </div>
     </div>
   );
 };
 
-// Section 2: Scrolling Marquee Strip
+// Section 2: Scrolling Marquee Strip - No Hover Effects
 const MarqueeStrip = () => {
   const words = ["SEO", "Branding", "Ads", "Growth", "Analytics", "Social Media", "Content", "Strategy", "ROI", "Conversion"];
 
@@ -440,7 +435,7 @@ const MarqueeStrip = () => {
   );
 };
 
-// Section 3: Services Flow - Zig-Zag Layout (NO CONNECTING LINE)
+// Section 3: Services Flow - Zig-Zag Layout - No Hover Effects
 const ServicesSection = () => {
   const services = [
     { title: "SEO Optimization", description: "Dominate search rankings with data-driven SEO strategies that drive organic traffic.", icon: "📈", direction: "left", color: "#C6FF00" },
@@ -482,7 +477,7 @@ const ServicesSection = () => {
   );
 };
 
-// Section 4: Interactive Timeline
+// Section 4: Interactive Timeline - No Hover Effects
 const TimelineSection = () => {
   const steps = [
     { step: "01", title: "Research", description: "Deep dive into your market, competitors, and audience", icon: "🔍" },
@@ -524,7 +519,7 @@ const TimelineSection = () => {
   );
 };
 
-// Section 5: Typography Feature Section
+// Section 5: Typography Feature Section - No Hover Effects
 const TypographySection = () => {
   return (
     <div className="seo-typography">
@@ -553,12 +548,22 @@ const TypographySection = () => {
   );
 };
 
-// Section 6: Split Screen Section with Images
+// Section 6: Split Screen Section with Single Image on Left - No Hover Effects
 const SplitScreenSection = () => {
   return (
     <div className="seo-split">
       <div className="seo-split-container">
         <div className="seo-split-left">
+          <div className="seo-split-image-wrapper">
+            <img 
+              src={splitScreenImage} 
+              alt="Omnichannel Marketing Strategy"
+              className="seo-split-single-image"
+            />
+            <div className="seo-split-glow"></div>
+          </div>
+        </div>
+        <div className="seo-split-right">
           <span className="seo-section-badge">INTEGRATED APPROACH</span>
           <h2>Omnichannel <span className="seo-gradient-text">Marketing</span> That Works</h2>
           <p>We connect every touchpoint — from search to social, email to ads — creating seamless experiences that convert at every stage.</p>
@@ -568,32 +573,12 @@ const SplitScreenSection = () => {
             <div className="seo-feature">✓ AI-powered Optimization</div>
           </div>
         </div>
-        <div className="seo-split-right">
-          <div className="seo-split-images">
-            <img 
-              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop" 
-              alt="Marketing Analytics"
-              className="seo-split-img seo-img-1"
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" 
-              alt="Social Media Strategy"
-              className="seo-split-img seo-img-2"
-            />
-            <img 
-              src="https://images.unsplash.com/photo-1557838923-2985c318be48?w=400&h=300&fit=crop" 
-              alt="SEO Growth"
-              className="seo-split-img seo-img-3"
-            />
-            <div className="seo-split-glow"></div>
-          </div>
-        </div>
       </div>
     </div>
   );
 };
 
-// Section 7: Performance Metrics Strip
+// Section 7: Performance Metrics Strip - No Hover Effects
 const MetricsSection = () => {
   const metrics = [
     { number: "200%", label: "Average Growth", icon: "📈" },
@@ -624,7 +609,7 @@ const MetricsSection = () => {
   );
 };
 
-// Section 8: Testimonial Wave Section
+// Section 8: Testimonial Wave Section - No Hover Effects
 const TestimonialsSection = () => {
   const testimonials = [
     { text: "Nexonic transformed our digital presence. Our organic traffic increased by 300% in 6 months!", author: "Sarah Johnson", role: "CEO, TechStart" },
@@ -644,7 +629,7 @@ const TestimonialsSection = () => {
         {testimonials.map((testimonial, index) => (
           <motion.div 
             key={index} 
-            className={`seo-testimonial-item seo-wave-${index % 2 === 0 ? 'left' : 'right'}`}
+            className="seo-testimonial-item"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -663,7 +648,7 @@ const TestimonialsSection = () => {
   );
 };
 
-// Section 9: Industry Expertise Section
+// Section 9: Industry Expertise Section - No Hover Effects
 const IndustrySection = () => {
   const industries = [
     { name: "E-commerce", icon: "🛍️", description: "Boost online sales with targeted strategies" },
@@ -702,7 +687,7 @@ const IndustrySection = () => {
   );
 };
 
-// Section 10: Technology Stack Section
+// Section 10: Technology Stack Section - No Hover Effects
 const TechnologySection = () => {
   const techs = [
     { name: "Google Analytics", icon: "📊", level: "Expert" },
@@ -744,7 +729,7 @@ const TechnologySection = () => {
   );
 };
 
-// Section 11: Final CTA
+// Section 11: Final CTA - No Hover Effects
 const CTASection = () => {
   const navigate = useNavigate();
 
@@ -782,7 +767,7 @@ const CTASection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <button className="seo-cta-primary" onClick={() => navigate('/contact')}>
+          <button className="seo-cta-primary" onClick={() => navigate('/get-started')}>
             Start Growing
             <span className="seo-btn-arrow">→</span>
           </button>

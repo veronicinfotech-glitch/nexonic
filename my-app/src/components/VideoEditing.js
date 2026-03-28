@@ -5,6 +5,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import './VideoEditing.css';
 import logo from "../image/logo.jpg";
 
+// Import local images
+import videoShowcase1 from "../image/C1.jpg";
+import videoShowcase2 from "../image/y.jpg";
+import videoShowcase3 from "../image/r.jpg";
+import videoShowcase4 from "../image/l3.jpg";
+import videoShowcase5 from "../image/mV.jpg";
+import videoShowcase6 from "../image/b.jpg";
+import developerImage from "../image/P.jpg";
+
 // Section Wrapper with scroll animation
 const Section = ({ children, className = '', id = '' }) => {
   const sectionRef = useRef(null);
@@ -225,7 +234,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -337,16 +346,15 @@ const Footer = () => {
   );
 };
 
-// Section 1: Hero Section with Parallax
+// Section 1: Hero Section - No background image, no scroll indicator
 const HeroSection = () => {
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0.5]);
 
   return (
     <div className="ve-hero">
-      <motion.div className="ve-hero-background" style={{ y }}>
+      <div className="ve-hero-background">
         <div className="ve-hero-gradient"></div>
         <div className="ve-hero-grid"></div>
         <div className="ve-hero-particles">
@@ -366,7 +374,7 @@ const HeroSection = () => {
             />
           ))}
         </div>
-      </motion.div>
+      </div>
       
       <motion.div className="ve-hero-content" style={{ opacity }}>
         <motion.div
@@ -413,13 +421,6 @@ const HeroSection = () => {
           </button>
         </motion.div>
       </motion.div>
-
-      <div className="ve-scroll-indicator" onClick={() => {
-        document.getElementById('ve-services').scrollIntoView({ behavior: 'smooth' });
-      }}>
-        <span>Scroll to explore</span>
-        <div className="ve-scroll-line"></div>
-      </div>
     </div>
   );
 };
@@ -549,15 +550,15 @@ const ProcessSection = () => {
   );
 };
 
-// Section 5: Showcase Section
+// Section 5: Showcase Section with Local Images
 const ShowcaseSection = () => {
   const showcases = [
-    { title: "Cinematic Commercial", description: "Stunning motion graphics and visual effects", image: "https://images.unsplash.com/photo-1536240476400-bc1b8a3e7a6f?w=600&h=400&fit=crop", category: "Commercial" },
-    { title: "YouTube Vlog Series", description: "Engaging content with smooth transitions", image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&h=400&fit=crop", category: "Content" },
-    { title: "Instagram Reel", description: "Scroll-stopping short-form content", image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=400&fit=crop", category: "Social" },
-    { title: "Product Launch", description: "Professional color grading and effects", image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop", category: "Marketing" },
-    { title: "Music Video", description: "Dynamic editing with visual effects", image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&h=400&fit=crop", category: "Entertainment" },
-    { title: "Brand Story", description: "Cinematic storytelling that inspires", image: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=400&fit=crop", category: "Branding" }
+    { title: "Cinematic Commercial", description: "Stunning motion graphics and visual effects", image: videoShowcase1, category: "Commercial" },
+    { title: "YouTube Vlog Series", description: "Engaging content with smooth transitions", image: videoShowcase2, category: "Content" },
+    { title: "Instagram Reel", description: "Scroll-stopping short-form content", image: videoShowcase3, category: "Social" },
+    { title: "Product Launch", description: "Professional color grading and effects", image: videoShowcase4, category: "Marketing" },
+    { title: "Music Video", description: "Dynamic editing with visual effects", image: videoShowcase5, category: "Entertainment" },
+    { title: "Brand Story", description: "Cinematic storytelling that inspires", image: videoShowcase6, category: "Branding" }
   ];
 
   return (
@@ -639,7 +640,7 @@ const DeveloperSection = () => {
         >
           <div className="ve-developer-single-image">
             <img 
-              src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=500&fit=crop" 
+              src={developerImage} 
               alt="Developer coding" 
               className="ve-dev-single-img"
             />

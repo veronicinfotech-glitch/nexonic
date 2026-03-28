@@ -5,6 +5,14 @@ import { Link, useNavigate } from "react-router-dom";
 import "./DigitalMarketing.css";
 import logo from "../image/logo.jpg";
 
+// Import all images for Digital Marketing page
+import videoEditingImage from "../image/v1.png";
+import logoDesignImage from "../image/l2.png";
+import instagramPostImage from "../image/i1.jpg";
+import seoImage from "../image/s1.png";
+import googleAdsImage from "../image/GA1.jpg";
+import developerImage from "../image/M1.jpg";
+
 // Section Wrapper with animation
 const Section = ({ children, className = "", id = "" }) => {
   const sectionRef = useRef(null);
@@ -42,7 +50,7 @@ const Section = ({ children, className = "", id = "" }) => {
   );
 };
 
-// Navbar Component - SAME AS HOME, SERVICES, AND ABOUT PAGES
+// Navbar Component
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -230,7 +238,7 @@ const Navbar = () => {
         <div className="nav-right">
           <button
             className="btn-nav"
-            onClick={() => handleNavigation("/contact")}
+            onClick={() => handleNavigation("/get-started")}
           >
             Get Started
           </button>
@@ -248,7 +256,7 @@ const Navbar = () => {
   );
 };
 
-// Footer Component - SAME AS HOME, SERVICES, AND ABOUT PAGES
+// Footer Component - No Hover Effects
 const Footer = () => {
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
@@ -444,7 +452,7 @@ const Footer = () => {
   );
 };
 
-// Section 1: Hero Section - Only section with animations
+// Section 1: Hero Section - No scroll indicator
 const HeroSection = () => {
   const navigate = useNavigate();
 
@@ -529,22 +537,12 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      <div
-        className="dm-scroll-indicator"
-        onClick={() => {
-          document
-            .getElementById("dm-services")
-            .scrollIntoView({ behavior: "smooth" });
-        }}
-      >
-        <span>Scroll to explore</span>
-        <div className="dm-scroll-line"></div>
-      </div>
+      {/* Scroll indicator removed */}
     </div>
   );
 };
 
-// Section 2: Services - Zig-Zag Layout with Online Images
+// Section 2: Services - Zig-Zag Layout with Local Images - No Hover Effects
 const ServicesSection = () => {
   const navigate = useNavigate();
 
@@ -553,40 +551,35 @@ const ServicesSection = () => {
       title: "Video Editing",
       description:
         "Transform raw footage into captivating stories that engage your audience and drive conversions. Our expert editors craft compelling narratives that resonate with your brand identity.",
-      image:
-        "https://images.unsplash.com/photo-1536240476400-bc1b8a3e7a6f?w=600&h=400&fit=crop",
+      image: videoEditingImage,
       path: "/video-editing",
     },
     {
       title: "Logo Design",
       description:
         "Create a lasting first impression with a unique, memorable logo that embodies your brand's identity. We design logos that stand out in crowded markets.",
-      image:
-        "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600&h=400&fit=crop",
+      image: logoDesignImage,
       path: "/logo-design",
     },
     {
       title: "Instagram Post",
       description:
         "Boost engagement with stunning, scroll-stopping Instagram visuals. Our designs are optimized for maximum reach and engagement on social platforms.",
-      image:
-        "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=400&fit=crop",
+      image: instagramPostImage,
       path: "/instagram-post",
     },
     {
       title: "SEO",
       description:
         "Dominate search engine results and drive organic traffic with our comprehensive, data-driven SEO strategies. We help you rank higher and attract qualified leads.",
-      image:
-        "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=600&h=400&fit=crop",
+      image: seoImage,
       path: "/seo-optimization",
     },
     {
       title: "Google Ads / Analytics",
       description:
         "Maximize ROI with targeted Google Ads campaigns and in-depth analytics. We optimize every dollar spent to deliver measurable business growth.",
-      image:
-        "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&h=400&fit=crop",
+      image: googleAdsImage,
       path: "/google-ads",
     },
   ];
@@ -634,7 +627,7 @@ const ServicesSection = () => {
   );
 };
 
-// Section 3: Why Choose Us
+// Section 3: Why Choose Us - No Hover Effects
 const WhyChooseUsSection = () => {
   const features = [
     {
@@ -689,7 +682,7 @@ const WhyChooseUsSection = () => {
   );
 };
 
-// Section 4: Process Section
+// Section 4: Process Section - No Hover Effects
 const ProcessSection = () => {
   const steps = [
     {
@@ -748,7 +741,7 @@ const ProcessSection = () => {
   );
 };
 
-// Section 5: Results Section
+// Section 5: Results Section - No Hover Effects
 const ResultsSection = () => {
   const stats = [
     { number: "10K+", label: "Reach Generated", icon: "📢" },
@@ -779,7 +772,7 @@ const ResultsSection = () => {
   );
 };
 
-// Section 6: Developer-Focused Section with Images on Left Side
+// Section 6: Developer-Focused Section with Images on Left Side - No Hover Effects
 const DeveloperSection = () => {
   const topics = [
     {
@@ -818,7 +811,7 @@ const DeveloperSection = () => {
       <div className="dm-developer-split">
         <div className="dm-developer-left">
           <img
-            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=500&fit=crop"
+            src={developerImage}
             alt="Developer working on code"
             className="dm-developer-image"
           />
@@ -842,7 +835,7 @@ const DeveloperSection = () => {
   );
 };
 
-// Section 7: Testimonials
+// Section 7: Testimonials - No Hover Effects
 const TestimonialsSection = () => {
   const testimonials = [
     {

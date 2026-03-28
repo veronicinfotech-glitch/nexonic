@@ -5,6 +5,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Blog.css';
 import logo from "../image/logo.jpg";
 
+// Import local images
+import featuredImage from "../image/H1.jpg";
+import reactImage from "../image/Modern.jpg";
+import performanceImage from "../image/Performance.jpg";
+import uiuxImage from "../image/us.jpg";
+import aiImage from "../image/AI-Powered.jpg";
+
 // Section Wrapper with animation
 const Section = ({ children, className = '', id = '' }) => {
   const sectionRef = useRef(null);
@@ -225,7 +232,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -337,8 +344,18 @@ const Footer = () => {
   );
 };
 
-// Hero Section Component
+// Hero Section Component - No background image, no scroll indicator
 const HeroSection = () => {
+  const navigate = useNavigate();
+
+  const handleExploreArticles = () => {
+    document.getElementById('marketing-knowledge').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleLatestInsights = () => {
+    document.getElementById('webdev-insights').scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <motion.div 
       className="hero-section-unique"
@@ -403,31 +420,19 @@ const HeroSection = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
-          <motion.button 
+          <button 
             className="btn-primary-custom"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.1 }}
+            onClick={handleExploreArticles}
           >
             Explore Articles
-          </motion.button>
-          <motion.button 
+          </button>
+          <button 
             className="btn-outline-custom"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.1 }}
+            onClick={handleLatestInsights}
           >
             Latest Insights
-          </motion.button>
+          </button>
         </motion.div>
-      </motion.div>
-      <motion.div 
-        className="scroll-indicator-custom"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        <span>Discover</span>
-        <div className="scroll-line-custom"></div>
       </motion.div>
     </motion.div>
   );
@@ -435,6 +440,13 @@ const HeroSection = () => {
 
 // Featured Article Section
 const FeaturedArticleSection = () => {
+  const navigate = useNavigate();
+
+  const handleReadMore = () => {
+    navigate('/blog/seo-web-performance');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="featured-unique">
       <div className="featured-container">
@@ -465,6 +477,9 @@ const FeaturedArticleSection = () => {
               <span className="featured-date">March 15, 2026</span>
               <span className="featured-read-time">12 min read</span>
             </div>
+            <button className="featured-read-more" onClick={handleReadMore}>
+              Read Full Article →
+            </button>
           </motion.div>
           <motion.div 
             className="featured-visual-panel"
@@ -475,7 +490,7 @@ const FeaturedArticleSection = () => {
           >
             <div className="featured-image-frame">
               <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" 
+                src={featuredImage} 
                 alt="SEO and Web Performance"
               />
             </div>
@@ -488,6 +503,8 @@ const FeaturedArticleSection = () => {
 
 // Digital Marketing Knowledge - Magazine Style Layout
 const MarketingKnowledgeSection = () => {
+  const navigate = useNavigate();
+
   const articles = [
     {
       id: 1,
@@ -495,7 +512,8 @@ const MarketingKnowledgeSection = () => {
       description: 'Voice search, AI algorithms, and zero-click searches - the new frontier of SEO',
       category: 'SEO',
       readTime: '8 min',
-      number: '01'
+      number: '01',
+      path: '/blog/seo-strategies-2026'
     },
     {
       id: 2,
@@ -503,7 +521,8 @@ const MarketingKnowledgeSection = () => {
       description: 'How to leverage AI-driven algorithms for organic reach in 2026',
       category: 'Social Media',
       readTime: '6 min',
-      number: '02'
+      number: '02',
+      path: '/blog/social-media-algorithms'
     },
     {
       id: 3,
@@ -511,7 +530,8 @@ const MarketingKnowledgeSection = () => {
       description: 'Advanced strategies for maximizing ROAS in competitive markets',
       category: 'PPC',
       readTime: '10 min',
-      number: '03'
+      number: '03',
+      path: '/blog/google-ads-optimization'
     },
     {
       id: 4,
@@ -519,7 +539,8 @@ const MarketingKnowledgeSection = () => {
       description: 'Interactive content, personalization, and AI-generated media',
       category: 'Content',
       readTime: '7 min',
-      number: '04'
+      number: '04',
+      path: '/blog/content-marketing-trends'
     },
     {
       id: 5,
@@ -527,7 +548,8 @@ const MarketingKnowledgeSection = () => {
       description: 'Building customer journeys that convert with AI-powered tools',
       category: 'Email',
       readTime: '5 min',
-      number: '05'
+      number: '05',
+      path: '/blog/email-marketing-automation'
     },
     {
       id: 6,
@@ -535,12 +557,18 @@ const MarketingKnowledgeSection = () => {
       description: 'Turning data into actionable marketing strategies',
       category: 'Analytics',
       readTime: '9 min',
-      number: '06'
+      number: '06',
+      path: '/blog/analytics-data-insights'
     }
   ];
 
+  const handleArticleClick = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div className="marketing-magazine">
+    <div className="marketing-magazine" id="marketing-knowledge">
       <div className="magazine-header">
         <span className="magazine-year">2026 EDITION</span>
         <h2 className="magazine-title">Digital Marketing Knowledge</h2>
@@ -555,7 +583,7 @@ const MarketingKnowledgeSection = () => {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
             viewport={{ once: true }}
-            whileHover={{ y: -3, borderColor: '#C6FF00' }}
+            onClick={() => handleArticleClick(article.path)}
           >
             <div className="magazine-number">{article.number}</div>
             <div className="magazine-content">
@@ -575,51 +603,62 @@ const MarketingKnowledgeSection = () => {
 
 // Web Development Insights - Enhanced with Different Colors for Categories
 const WebDevInsightsSection = () => {
+  const navigate = useNavigate();
+
   const articles = [
     {
       id: 1,
       title: 'Modern React Development Techniques for 2026',
       description: 'Exploring Server Components, Suspense, and the future of React in 2026.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop',
+      image: reactImage,
       category: 'Frontend',
       author: 'David Kim',
       date: 'Mar 12, 2026',
-      color: '#C6FF00'
+      color: '#C6FF00',
+      path: '/blog/react-development-2026'
     },
     {
       id: 2,
       title: 'Performance Optimization Strategies for 2026',
       description: 'Core Web Vitals, image optimization, and advanced caching strategies.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop',
+      image: performanceImage,
       category: 'Performance',
       author: 'Michael Lee',
       date: 'Mar 10, 2026',
-      color: '#7CFF3A'
+      color: '#7CFF3A',
+      path: '/blog/performance-optimization'
     },
     {
       id: 3,
       title: 'UI/UX Trends Shaping 2026',
       description: 'Micro-interactions, 3D elements, and hyper-personalization.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=800&fit=crop',
+      image: uiuxImage,
       category: 'Design',
       author: 'Emily Watson',
       date: 'Mar 8, 2026',
-      color: '#B6FF1A'
+      color: '#B6FF1A',
+      path: '/blog/uiux-trends-2026'
     },
     {
       id: 4,
       title: 'AI-Powered Development in 2026',
       description: 'How AI coding assistants are changing the way developers work.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop',
+      image: aiImage,
       category: 'AI',
       author: 'James Wilson',
       date: 'Mar 5, 2026',
-      color: '#C6FF00'
+      color: '#C6FF00',
+      path: '/blog/ai-powered-development'
     }
   ];
 
+  const handleArticleClick = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
-    <div className="webdev-enhanced">
+    <div className="webdev-enhanced" id="webdev-insights">
       <div className="webdev-header">
         <motion.span 
           className="webdev-year"
@@ -658,7 +697,7 @@ const WebDevInsightsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ y: -5 }}
+            onClick={() => handleArticleClick(article.path)}
           >
             <div className="webdev-enhanced-image">
               <img src={article.image} alt={article.title} />
@@ -670,8 +709,6 @@ const WebDevInsightsSection = () => {
               <motion.span 
                 className="webdev-item-category-enhanced"
                 style={{ color: article.color }}
-                whileHover={{ x: 3 }}
-                transition={{ duration: 0.1 }}
               >
                 {article.category}
               </motion.span>
@@ -735,7 +772,6 @@ const TrendsTimelineSection = () => {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.4, delay: index * 0.05 }}
             viewport={{ once: true }}
-            whileHover={{ x: 5 }}
           >
             <div className="trends-year-marker">
               <span className="trends-year">{trend.year}</span>
@@ -805,7 +841,6 @@ const ExpertTipsSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.03 }}
             viewport={{ once: true }}
-            whileHover={{ y: -3, borderColor: '#C6FF00' }}
           >
             <div className="wall-tip-number">0{index + 1}</div>
             <p className="wall-tip-text">
@@ -826,6 +861,7 @@ const SubscribeSection = () => {
     e.preventDefault();
     console.log('Subscribed:', email);
     setEmail('');
+    alert('Thank you for subscribing!');
   };
 
   return (
@@ -849,8 +885,6 @@ const SubscribeSection = () => {
       >
         <motion.span 
           className="subscribe-badge-enhanced"
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.1 }}
         >
           JOIN OUR 2026 COMMUNITY
         </motion.span>
@@ -870,15 +904,12 @@ const SubscribeSection = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-            <motion.button 
+            <button 
               type="submit" 
               className="subscribe-btn-enhanced"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.1 }}
             >
               Subscribe Now
-            </motion.button>
+            </button>
           </div>
         </form>
         <p className="privacy-note-enhanced">

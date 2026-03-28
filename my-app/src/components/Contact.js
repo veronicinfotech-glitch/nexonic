@@ -225,7 +225,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -438,18 +438,6 @@ const ContactHeroSection = () => {
           </motion.button>
         </motion.div>
       </motion.div>
-
-      <motion.div 
-        className="scroll-indicator-contact"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity }}
-        onClick={() => {
-          document.getElementById('contact-form-section').scrollIntoView({ behavior: 'smooth' });
-        }}
-      >
-        <span>Scroll to Connect</span>
-        <div className="scroll-line-contact"></div>
-      </motion.div>
     </div>
   );
 };
@@ -615,8 +603,8 @@ const ContactFormSection = () => {
               <div className="info-icon">✉️</div>
               <div className="info-content">
                 <span className="info-label">Email Us</span>
-                <a href="mailto:hello@nexonic.com" className="info-value">hello@nexonic.com</a>
-                <a href="mailto:support@nexonic.com" className="info-value">support@nexonic.com</a>
+                <a href="mailto:hello@nexonic.com" className="info-value">nexonic.marketing@gmail.com</a>
+                {/* <a href="mailto:support@nexonic.com" className="info-value">support@nexonic.com</a> */}
               </div>
             </div>
 
@@ -624,18 +612,18 @@ const ContactFormSection = () => {
               <div className="info-icon">📞</div>
               <div className="info-content">
                 <span className="info-label">Call Us</span>
-                <a href="tel:+1234567890" className="info-value">+1 (234) 567-890</a>
-                <a href="tel:+0987654321" className="info-value">+1 (098) 765-432</a>
+                <a href="tel:+1234567890" className="info-value">+91 95106 53051</a>
+                <a href="tel:+0987654321" className="info-value">+91 87587 52687</a>
               </div>
             </div>
 
             <div className="info-item">
-              <div className="info-icon">📍</div>
-              <div className="info-content">
+              {/* <div className="info-icon">📍</div> */}
+              {/* <div className="info-content">
                 <span className="info-label">Visit Us</span>
                 <span className="info-value">123 Digital Avenue</span>
                 <span className="info-value">San Francisco, CA 94105</span>
-              </div>
+              </div> */}
             </div>
 
             <div className="social-info">

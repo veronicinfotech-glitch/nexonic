@@ -1,4 +1,4 @@
-// GoogleAdAndAnalytics.js - Updated with Consistent Navbar and Footer
+// GoogleAdAndAnalytics.js - Updated with Consistent Navbar and Footer - No Scroll Indicator
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
@@ -263,7 +263,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -275,7 +275,7 @@ const Navbar = () => {
   );
 };
 
-// Footer Component - SAME AS ALL OTHER PAGES
+// Footer Component - SAME AS ALL OTHER PAGES - No Hover Effects
 const Footer = () => {
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
@@ -375,7 +375,7 @@ const Footer = () => {
   );
 };
 
-// Section 1: Hero Section - Split Layout
+// Section 1: Hero Section - Split Layout - No Scroll Indicator
 const HeroSection = () => {
   const navigate = useNavigate();
 
@@ -499,17 +499,12 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="ga-scroll-indicator" onClick={() => {
-        document.getElementById('ga-flow').scrollIntoView({ behavior: 'smooth' });
-      }}>
-        <span>Scroll to explore</span>
-        <div className="ga-scroll-line"></div>
-      </div>
+      {/* Scroll indicator removed */}
     </div>
   );
 };
 
-// Section 2: Google Ads Performance Flow - Horizontal Scroll
+// Section 2: Google Ads Performance Flow - Horizontal Scroll - No Hover Effects
 const PerformanceFlow = () => {
   const steps = [
     { title: "Impression", icon: "👁️", value: "2.5M+", color: "#C6FF00", description: "Ad views served across network", metric: "Reach" },
@@ -559,7 +554,7 @@ const PerformanceFlow = () => {
   );
 };
 
-// Section 3: Analytics Visual Lab
+// Section 3: Analytics Visual Lab - No Hover Effects
 const AnalyticsLab = () => {
   const [activeData, setActiveData] = useState(null);
   
@@ -668,7 +663,7 @@ const AnalyticsLab = () => {
   );
 };
 
-// Section 4: Campaign Structure Breakdown - Vertical Timeline
+// Section 4: Campaign Structure Breakdown - Vertical Timeline - No Hover Effects
 const CampaignBreakdown = () => {
   const steps = [
     { title: "Campaign Setup", description: "Define goals, budget, and targeting parameters with precision", icon: "🎯", color: "#C6FF00", metrics: "Goal: Conversions" },
@@ -711,7 +706,7 @@ const CampaignBreakdown = () => {
   );
 };
 
-// Section 5: Smart Optimization Engine - Split Screen
+// Section 5: Smart Optimization Engine - Split Screen - No Hover Effects
 const OptimizationEngine = () => {
   const [isActive, setIsActive] = useState(true);
   const [bidValue, setBidValue] = useState(75);
@@ -821,7 +816,7 @@ const OptimizationEngine = () => {
   );
 };
 
-// Section 6: Data Stream
+// Section 6: Data Stream - No Hover Effects
 const DataStream = () => {
   const logs = [
     "▶ [ANALYTICS] Real-time data sync active | 2,345 events processed",
@@ -886,7 +881,7 @@ const DataStream = () => {
   );
 };
 
-// Section 7: Final CTA
+// Section 7: Final CTA - No Hover Effects
 const CTASection = () => {
   const navigate = useNavigate();
 
@@ -929,7 +924,7 @@ const CTASection = () => {
             Start Your Campaign
             <span className="ga-btn-arrow">→</span>
           </button>
-          <button className="ga-cta-secondary" onClick={() => navigate('/contact')}>
+          <button className="ga-cta-secondary" onClick={() => navigate('/get-started')}>
             Request Demo
             <span className="ga-btn-arrow">→</span>
           </button>

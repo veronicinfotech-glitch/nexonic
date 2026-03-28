@@ -15,7 +15,8 @@ import InstagramPost from './components/InstagramPost';
 import SEO from './components/SEO';
 import GoogleAdAndAnalytics from './components/GoogleAdAndAnalytics';
 import CloudSolutions from './components/CloudSolutions';
-
+// import img from '../images/Cloudsolutions.png';
+import GetStarted from './components/GetStarted';
 
 function App() {
   return (
@@ -41,6 +42,8 @@ function App() {
         <Route path="/google-ads" element={<GoogleAdAndAnalytics />} />
         <Route path="/ui-ux-design" element={<UIUXDesign />} />
         <Route path="/cloud-solutions" element={<CloudSolutions />} />
+
+        <Route path="/get-started" element={<GetStarted />} />
 
       </Routes>
     </BrowserRouter>

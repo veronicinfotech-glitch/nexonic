@@ -6,14 +6,12 @@ import './About.css';
 import logo from "../image/logo.jpg";
 
 // All images using proper imports
-// import homeImage from "../image/home.jpg";
 import marketingImage from "../image/marketing.jpg";
 import creativeArt from "../image/Live.jpg";
 
 // Development Cards Images
 import webDevImage from "../image/webdev.jpg";
 import mobileAppImage from "../image/App.jpg";
-import cloudImage from "../image/Cloudsolutions.png";
 import uiuxImage from "../image/uiux.jpg";
 import apiImage from "../image/API.jpg";
 import devopsImage from "../image/DEVOPS.png";
@@ -264,7 +262,7 @@ const Navbar = () => {
   );
 };
 
-// Footer Component
+// Footer Component - No Hover Effects
 const Footer = () => {
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
@@ -369,7 +367,7 @@ const Footer = () => {
   );
 };
 
-// Journey Step Component
+// Journey Step Component - No Hover Effects
 const JourneyStep = ({ step, index }) => {
   const { ref, controls } = useScrollAnimation(0.3);
   
@@ -443,14 +441,6 @@ const HeroSection = () => {
           <p className="hero-subtitle">
             We're architects of digital experiences, blending creativity with technology to build solutions that matter.
           </p>
-        </motion.div>
-        <motion.div 
-          className="scroll-indicator-new"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <div className="scroll-line"></div>
-          <span>Scroll to explore</span>
         </motion.div>
       </div>
     </div>
@@ -593,7 +583,7 @@ const MarketingPhilosophySection = () => {
   );
 };
 
-// Digital Solutions Section
+// Digital Solutions Section - No Hover Effects
 const DigitalSolutionsSection = () => {
   const scrollRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -623,7 +613,6 @@ const DigitalSolutionsSection = () => {
     { icon: '🚀', title: 'Digital Transformation', desc: 'End-to-end digital transformation strategies to modernize your business operations and drive innovation.', image: webDevImage },
     { icon: '🤖', title: 'AI-Powered Automation', desc: 'Intelligent automation solutions that streamline workflows and boost operational efficiency.', image: apiImage },
     { icon: '📱', title: 'Cross-Platform Development', desc: 'Build once, deploy everywhere with our expert cross-platform mobile and web solutions.', image: mobileAppImage },
-    { icon: '☁️', title: 'Cloud Migration Services', desc: 'Seamless cloud migration and optimization for AWS, Azure, and Google Cloud platforms.', image: cloudImage },
     { icon: '🔒', title: 'Blockchain Solutions', desc: 'Secure, transparent blockchain applications for supply chain, finance, and digital identity.', image: securityImage },
     { icon: '📊', title: 'Business Intelligence', desc: 'Transform raw data into actionable insights with advanced BI dashboards and analytics.', image: databaseImage },
     { icon: '⚡', title: 'Edge Computing', desc: 'Low-latency solutions that process data closer to the source for real-time applications.', image: devopsImage },
@@ -670,7 +659,6 @@ const DigitalSolutionsSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true, amount: 0.3 }}
-                whileHover={{ y: -5 }}
               >
                 <div className="card-overlay"></div>
                 <div className="card-content">
@@ -805,7 +793,7 @@ const CreativeSection = () => {
   );
 };
 
-// How We Work Section
+// How We Work Section - No Hover Effects
 const HowWeWorkSection = () => {
   const workSteps = [
     {
@@ -901,7 +889,6 @@ const HowWeWorkSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
             >
               <div className="step-number-badge" style={{ borderColor: step.color }}>
                 {step.number}
@@ -942,7 +929,7 @@ const HowWeWorkSection = () => {
   );
 };
 
-// Success Stories Section
+// Success Stories Section - No Hover Effects
 const SuccessStoriesSection = () => {
   const stories = [
     {
@@ -1021,7 +1008,6 @@ const SuccessStoriesSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5 }}
             >
               <div className="story-icon-large">{story.icon}</div>
               <div className="story-header">
@@ -1044,14 +1030,14 @@ const SuccessStoriesSection = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <span className="cta-text">Join our success stories →</span>
+          {/* <span className="cta-text">Join our success stories →</span> */}
         </motion.div>
       </div>
     </div>
   );
 };
 
-// Culture Section
+// Culture Section - No Hover Effects
 const CultureSection = () => {
   return (
     <div className="culture-square-section">
@@ -1073,7 +1059,6 @@ const CultureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          whileHover={{ y: -8 }}
         >
           <div className="square-card-inner">
             <div className="square-icon-wrapper">
@@ -1093,7 +1078,6 @@ const CultureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
-          whileHover={{ y: -8 }}
         >
           <div className="square-card-inner">
             <div className="square-icon-wrapper">
@@ -1113,7 +1097,6 @@ const CultureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
-          whileHover={{ y: -8 }}
         >
           <div className="square-card-inner">
             <div className="square-icon-wrapper">
@@ -1154,7 +1137,7 @@ const CTASection = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           viewport={{ once: true }}
         >
-          Your journey to extraordinary begins with a single click
+          
         </motion.p>
         <motion.div
           className="cta-buttons"
@@ -1163,7 +1146,7 @@ const CTASection = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <button className="cta-btn-primary" onClick={() => navigate('/contact')}>Start Your Project</button>
+          <button className="cta-btn-primary" onClick={() => navigate('/get-started')}>Start Your Project</button>
           <button className="cta-btn-secondary" onClick={() => navigate('/contact')}>Contact Us</button>
         </motion.div>
       </div>

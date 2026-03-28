@@ -1,4 +1,4 @@
-/* InstagramPost.css - Complete Updated CSS with Dark Background */
+/* InstagramPost.css - Complete Updated CSS with Dark Background - No Scroll Indicator */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 * {
@@ -31,7 +31,7 @@ body {
   transform: translateY(0);
 }
 
-/* ==================== NAVBAR STYLES - SAME AS ALL PAGES ==================== */
+/* ==================== NAVBAR STYLES ==================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -94,7 +94,6 @@ body {
   color: #FFFFFF;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
@@ -102,10 +101,6 @@ body {
   border: none;
   position: relative;
   padding-bottom: 5px;
-}
-
-.nav-link:hover {
-  color: #C6FF00;
 }
 
 .nav-link.active {
@@ -130,6 +125,10 @@ body {
 
 .nav-links > li > .nav-link.active::after {
   width: 100%;
+}
+
+.nav-links > li > .nav-link:hover {
+  color: #C6FF00;
 }
 
 /* Dropdown Styles */
@@ -189,14 +188,9 @@ body {
 .main-dropdown-menu li a {
   color: #9CA3AF;
   text-decoration: none;
-  transition: color 0.2s ease;
   display: block;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
-}
-
-.main-dropdown-menu li a:hover {
-  color: #C6FF00;
 }
 
 /* Sub-dropdown Styles */
@@ -255,14 +249,9 @@ body {
 .sub-dropdown-menu li a {
   color: #9CA3AF;
   text-decoration: none;
-  transition: color 0.2s ease;
   display: block;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
-}
-
-.sub-dropdown-menu li a:hover {
-  color: #C6FF00;
 }
 
 .nav-right {
@@ -277,16 +266,10 @@ body {
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
   border: 2px solid #C6FF00;
   background: transparent;
   color: #C6FF00;
   font-family: 'Poppins', sans-serif;
-}
-
-.btn-nav:hover {
-  background: #C6FF00;
-  color: #000000;
 }
 
 .mobile-menu-icon {
@@ -303,7 +286,7 @@ body {
   transition: all 0.2s ease;
 }
 
-/* ==================== FOOTER STYLES - SAME AS ALL PAGES ==================== */
+/* ==================== FOOTER STYLES ==================== */
 .footer {
   background: #000000;
   padding: 80px 0 20px;
@@ -362,15 +345,8 @@ body {
   justify-content: center;
   color: #C6FF00;
   text-decoration: none;
-  transition: all 0.2s ease;
   font-size: 18px;
   border: 1px solid #222222;
-}
-
-.social-link:hover {
-  background: #C6FF00;
-  color: #000000;
-  transform: translateY(-3px);
 }
 
 .footer-links {
@@ -409,31 +385,11 @@ body {
 .footer-column ul li a {
   color: #6B7280;
   text-decoration: none;
-  transition: color 0.2s ease;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
   position: relative;
   display: inline-block;
   padding-bottom: 2px;
-}
-
-.footer-column ul li a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #C6FF00;
-  transition: width 0.3s ease;
-}
-
-.footer-column ul li a:hover::after {
-  width: 100%;
-}
-
-.footer-column ul li a:hover {
-  color: #C6FF00;
 }
 
 .footer-bottom {
@@ -455,28 +411,6 @@ body {
 .footer-bottom-right a {
   color: #6B7280;
   text-decoration: none;
-  transition: color 0.2s ease;
-  position: relative;
-  padding-bottom: 2px;
-}
-
-.footer-bottom-right a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: #C6FF00;
-  transition: width 0.3s ease;
-}
-
-.footer-bottom-right a:hover::after {
-  width: 100%;
-}
-
-.footer-bottom-right a:hover {
-  color: #C6FF00;
 }
 
 /* ==================== Hero Section ==================== */
@@ -627,7 +561,6 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(198, 255, 0, 0.3);
 }
 
@@ -644,48 +577,16 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
 }
 
 .ip-btn-arrow {
-  transition: transform 0.3s ease;
+  margin-left: 8px;
+  display: inline-block;
 }
 
-.ip-btn-primary:hover .ip-btn-arrow,
-.ip-btn-outline:hover .ip-btn-arrow {
-  transform: translateX(5px);
-}
-
+/* Scroll indicator removed */
 .ip-scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.ip-scroll-indicator span {
-  display: block;
-  font-size: 12px;
-  color: #6B7280;
-  margin-bottom: 8px;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px;
-}
-
-.ip-scroll-line {
-  width: 2px;
-  height: 50px;
-  background: linear-gradient(180deg, #C6FF00, transparent);
-  margin: 0 auto;
-  animation: ipScrollPulse 2s ease-in-out infinite;
-}
-
-@keyframes ipScrollPulse {
-  0%, 100% { opacity: 0.5; height: 40px; }
-  50% { opacity: 1; height: 60px; }
+  display: none;
 }
 
 /* ==================== Section Header ==================== */
@@ -870,12 +771,6 @@ body {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.ip-grid-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .ip-grid-image {
@@ -1019,12 +914,6 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid #222222;
   border-radius: 30px;
-  transition: all 0.3s ease;
-}
-
-.ip-engagement-element:hover {
-  border-color: #C6FF00;
-  transform: translateY(-5px);
 }
 
 .ip-engagement-icon {
@@ -1149,12 +1038,6 @@ body {
   border-radius: 30px;
   text-align: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.ip-comparison-side:hover {
-  border-color: #C6FF00;
-  transform: translateY(-3px);
 }
 
 .ip-comparison-side.active {
@@ -1314,7 +1197,6 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
   box-shadow: 0 0 20px rgba(198, 255, 0, 0.3);
 }
 
@@ -1331,12 +1213,6 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease;
-}
-
-.ip-cta-primary:hover,
-.ip-cta-secondary:hover {
-  transform: translateY(-3px);
 }
 
 /* ==================== Responsive Design ==================== */
@@ -1498,8 +1374,4 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #C6FF00;
   border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #B6FF1A;
 }

@@ -5,6 +5,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import './LogoDesign.css';
 import logo from "../image/logo.jpg";
 
+// Import local images
+import brandImage from "../image/logo1.jpg";
+import developerImage from "../image/logo2.png";
+
 // Section Wrapper with scroll animation
 const Section = ({ children, className = '', id = '' }) => {
   const sectionRef = useRef(null);
@@ -225,7 +229,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -337,11 +341,10 @@ const Footer = () => {
   );
 };
 
-// Section 1: Hero Section
+// Section 1: Hero Section - No background image, no scroll indicator
 const HeroSection = () => {
   const navigate = useNavigate();
   const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
 
   return (
@@ -370,7 +373,7 @@ const HeroSection = () => {
       <div className="ld-hero-content">
         <motion.div 
           className="ld-hero-text"
-          style={{ y, opacity }}
+          style={{ opacity }}
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -418,18 +421,11 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </div>
-
-      <div className="ld-scroll-indicator" onClick={() => {
-        document.getElementById('ld-brand-identity').scrollIntoView({ behavior: 'smooth' });
-      }}>
-        <span>Scroll to explore</span>
-        <div className="ld-scroll-line"></div>
-      </div>
     </div>
   );
 };
 
-// Section 2: Brand Identity Section
+// Section 2: Brand Identity Section with Local Image
 const BrandIdentitySection = () => {
   return (
     <div className="ld-brand" id="ld-brand-identity">
@@ -456,7 +452,7 @@ const BrandIdentitySection = () => {
         
         <div className="ld-brand-visual">
           <img 
-            src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=500&h=400&fit=crop" 
+            src={brandImage} 
             alt="Logo Design Process"
             className="ld-brand-image"
           />
@@ -538,17 +534,15 @@ const ProcessSection = () => {
   );
 };
 
-// Section 5: Showcase Section
+// Section 5: Showcase Section - Redesigned with Clean Cards
 const ShowcaseSection = () => {
-  const [activeLogo, setActiveLogo] = useState(null);
-  
   const logos = [
-    { name: "Nexus", style: "Minimal", description: "Clean geometric mark for tech startup", color: "#C6FF00" },
-    { name: "Aether", style: "3D", description: "Dynamic dimensional logo with depth", color: "#7CFF3A" },
-    { name: "Void", style: "Abstract", description: "Unique abstract symbol for creativity", color: "#B6FF1A" },
-    { name: "Prism", style: "Geometric", description: "Precise geometric shapes and forms", color: "#C6FF00" },
-    { name: "Echo", style: "Wordmark", description: "Custom typography and lettering", color: "#7CFF3A" },
-    { name: "Nova", style: "Iconic", description: "Memorable icon with strong presence", color: "#B6FF1A" }
+    { name: "Nexus", style: "Minimal", description: "Clean geometric mark for tech startup", icon: "✦", color: "#C6FF00" },
+    { name: "Aether", style: "3D", description: "Dynamic dimensional logo with depth", icon: "⬟", color: "#7CFF3A" },
+    { name: "Void", style: "Abstract", description: "Unique abstract symbol for creativity", icon: "◈", color: "#B6FF1A" },
+    { name: "Prism", style: "Geometric", description: "Precise geometric shapes and forms", icon: "⬚", color: "#C6FF00" },
+    { name: "Echo", style: "Wordmark", description: "Custom typography and lettering", icon: "⚡", color: "#7CFF3A" },
+    { name: "Nova", style: "Iconic", description: "Memorable icon with strong presence", icon: "★", color: "#B6FF1A" }
   ];
 
   return (
@@ -561,24 +555,22 @@ const ShowcaseSection = () => {
 
       <div className="ld-showcase-grid">
         {logos.map((logo, index) => (
-          <div 
-            key={index} 
-            className={`ld-showcase-card ${activeLogo === index ? 'active' : ''}`}
-            onMouseEnter={() => setActiveLogo(index)}
-            onMouseLeave={() => setActiveLogo(null)}
-          >
-            <div className="ld-showcase-preview" style={{ background: `${logo.color}10`, borderColor: logo.color }}>
-              <div className="ld-preview-logo" style={{ color: logo.color }}>
+          <div key={index} className="ld-showcase-card">
+            <div className="ld-showcase-preview" style={{ background: `${logo.color}08`, borderColor: `${logo.color}30` }}>
+              <div className="ld-preview-icon" style={{ color: logo.color }}>
+                {logo.icon}
+              </div>
+              <div className="ld-preview-letter" style={{ color: logo.color }}>
                 {logo.name.charAt(0)}{logo.name.charAt(logo.name.length - 1)}
               </div>
             </div>
             <div className="ld-showcase-details">
               <h4>{logo.name}</h4>
-              <p>{logo.style}</p>
+              <span className="ld-showcase-style" style={{ background: `${logo.color}15`, color: logo.color }}>
+                {logo.style}
+              </span>
+              <p className="ld-showcase-description">{logo.description}</p>
               <div className="ld-showcase-line" style={{ background: logo.color }}></div>
-              {activeLogo === index && (
-                <div className="ld-showcase-description">{logo.description}</div>
-              )}
             </div>
           </div>
         ))}
@@ -629,7 +621,7 @@ const TypographySection = () => {
   );
 };
 
-// Section 7: Developer Use Section
+// Section 7: Developer Use Section with Local Image
 const DeveloperSection = () => {
   const uses = [
     { title: "App Branding", description: "Make your app instantly recognizable with a distinctive logo.", icon: "📱" },
@@ -660,7 +652,7 @@ const DeveloperSection = () => {
         
         <div className="ld-developer-visual">
           <img 
-            src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=400&fit=crop" 
+            src={developerImage} 
             alt="Developer coding"
             className="ld-developer-image"
           />
@@ -721,9 +713,9 @@ const LogoDesign = () => {
         <ProcessSection />
       </Section>
 
-      <Section className="ld-showcase-section">
+      {/* <Section className="ld-showcase-section">
         <ShowcaseSection />
-      </Section>
+      </Section> */}
 
       <Section className="ld-typography-section">
         <TypographySection />

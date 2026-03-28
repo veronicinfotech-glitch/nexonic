@@ -1,4 +1,4 @@
-/* UIUXDesign.css - Complete with Consistent Navbar and Footer */
+/* UIUXDesign.css - Complete with Consistent Navbar and Footer - No Scroll Indicator */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 * {
@@ -479,7 +479,7 @@ body {
   color: #C6FF00;
 }
 
-/* ==================== Hero Section ==================== */
+/* ==================== Hero Section - No Scroll Indicator ==================== */
 .ui-hero {
   min-height: 100vh;
   width: 100%;
@@ -650,50 +650,12 @@ body {
 }
 
 .ui-btn-arrow {
-  transition: transform 0.3s ease;
-}
-
-.ui-btn-primary:hover .ui-btn-arrow,
-.ui-btn-outline:hover .ui-btn-arrow {
-  transform: translateX(5px);
-}
-
-.ui-btn-primary:hover,
-.ui-btn-outline:hover {
-  transform: translateY(-2px);
+  margin-left: 8px;
+  display: inline-block;
 }
 
 .ui-scroll-hint {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.ui-scroll-hint span {
-  display: block;
-  font-size: 12px;
-  color: #6B7280;
-  margin-bottom: 8px;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px;
-}
-
-.ui-scroll-line {
-  width: 2px;
-  height: 40px;
-  background: linear-gradient(180deg, #C6FF00, transparent);
-  margin: 0 auto;
-  animation: uiScrollLine 2s ease-in-out infinite;
-}
-
-@keyframes uiScrollLine {
-  0% { transform: scaleY(0.3); opacity: 0.3; }
-  50% { transform: scaleY(1); opacity: 1; }
-  100% { transform: scaleY(0.3); opacity: 0.3; }
+  display: none;
 }
 
 /* ==================== Section Header ==================== */
@@ -763,12 +725,6 @@ body {
   border: 1px solid #222222;
   border-radius: 24px;
   text-align: center;
-  transition: all 0.3s ease;
-}
-
-.ui-horizontal-item:hover {
-  border-color: #C6FF00;
-  transform: translateY(-5px);
 }
 
 .ui-item-icon {
@@ -835,12 +791,6 @@ body {
   border-radius: 24px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   border: 1px solid #222222;
-  transition: transform 0.3s ease;
-}
-
-.ui-split-image:hover {
-  transform: scale(1.02);
-  border-color: #C6FF00;
 }
 
 /* ==================== Steps Section ==================== */
@@ -897,7 +847,6 @@ body {
   align-items: center;
   justify-content: center;
   z-index: 2;
-  transition: all 0.3s ease;
 }
 
 .ui-step-marker span {
@@ -907,22 +856,12 @@ body {
   font-family: 'Orbitron', sans-serif;
 }
 
-.ui-step:hover .ui-step-marker {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(198, 255, 0, 0.3);
-}
-
 .ui-step-content {
   flex: 1;
   padding: 20px;
   background: #111111;
   border: 1px solid #222222;
   border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
-.ui-step:hover .ui-step-content {
-  border-color: #C6FF00;
 }
 
 .ui-step-icon {
@@ -1012,12 +951,6 @@ body {
   background: #111111;
   border: 1px solid;
   border-radius: 24px;
-  transition: all 0.3s ease;
-}
-
-.ui-creative-item:hover {
-  transform: translateY(-5px);
-  border-color: #C6FF00;
 }
 
 .ui-creative-item h3 {
@@ -1052,12 +985,6 @@ body {
   border: 1px solid #222222;
   border-radius: 24px;
   position: relative;
-  transition: all 0.3s ease;
-}
-
-.ui-testimonial-item:hover {
-  border-color: #C6FF00;
-  transform: translateY(-3px);
 }
 
 .ui-testimonial-quote {
@@ -1185,7 +1112,6 @@ body {
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-  animation: uiPulse 2s ease-in-out infinite;
 }
 
 .ui-cta-secondary {
@@ -1202,16 +1128,6 @@ body {
   align-items: center;
   gap: 8px;
   transition: all 0.3s ease;
-}
-
-@keyframes uiPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(198, 255, 0, 0.3); }
-  50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(198, 255, 0, 0); }
-}
-
-.ui-cta-primary:hover,
-.ui-cta-secondary:hover {
-  transform: translateY(-3px);
 }
 
 /* ==================== Responsive Design ==================== */
@@ -1325,8 +1241,4 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #C6FF00;
   border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #B6FF1A;
 }

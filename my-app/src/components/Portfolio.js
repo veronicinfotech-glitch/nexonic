@@ -1,9 +1,23 @@
-// Portfolio.js - Updated with Consistent Navbar and Footer
+// Portfolio.js - Updated with Consistent Navbar and Footer - All Buttons Working
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import './Portfolio.css';
 import logo from "../image/logo.jpg";
+
+// Import local images
+import luxeFashionImage from "../image/Building.jpg";
+import fintechImage from "../image/Building.jpg";
+import greenLifeImage from "../image/Building.jpg";
+import healthcareImage from "../image/DigitalMarketing.jpg";
+import aiMarketingImage from "../image/DigitalMarketing.jpg";
+import realEstateImage from "../image/DigitalMarketing.jpg";
+import fitnessAppImage from "../image/DigitalMarketing.jpg";
+import contentPlatformImage from "../image/DigitalMarketing.jpg";
+import beforeImage from "../image/DigitalMarketing.jpg";
+import afterImage from "../image/DigitalMarketing.jpg";
+import caseStudyImage from "../image/How.jpg";
+import introAbstractImage from "../image/Building.jpg";
 
 // Section Wrapper with simple animation
 const Section = ({ children, className = '', id = '' }) => {
@@ -225,7 +239,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -344,7 +358,7 @@ const HorizontalScrollSection = () => {
       id: 1, 
       title: 'LuxeFashion E-Commerce', 
       category: 'Web Development', 
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop', 
+      image: luxeFashionImage, 
       description: 'Complete e-commerce platform for luxury fashion brand launched in 2026',
       client: 'LuxeFashion',
       year: '2026'
@@ -353,7 +367,7 @@ const HorizontalScrollSection = () => {
       id: 2, 
       title: 'FinTech Dashboard Pro', 
       category: 'Software Development', 
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop', 
+      image: fintechImage, 
       description: 'Real-time financial analytics dashboard for investment firm',
       client: 'CapitalView',
       year: '2026'
@@ -362,7 +376,7 @@ const HorizontalScrollSection = () => {
       id: 3, 
       title: 'GreenLife Campaign', 
       category: 'Digital Marketing', 
-      image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=800&h=600&fit=crop', 
+      image: greenLifeImage, 
       description: 'Integrated marketing campaign for sustainable products',
       client: 'GreenLife',
       year: '2026'
@@ -371,7 +385,7 @@ const HorizontalScrollSection = () => {
       id: 4, 
       title: 'MediCare Connect', 
       category: 'Mobile Development', 
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&h=600&fit=crop', 
+      image: healthcareImage, 
       description: 'Telemedicine platform connecting patients with healthcare providers',
       client: 'MediCare',
       year: '2026'
@@ -380,7 +394,7 @@ const HorizontalScrollSection = () => {
       id: 5, 
       title: 'AI Marketing Suite', 
       category: 'Marketing Tech', 
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop', 
+      image: aiMarketingImage, 
       description: 'AI-powered marketing automation platform for agencies',
       client: 'MarketAI',
       year: '2026'
@@ -465,7 +479,7 @@ const ZigzagSection = () => {
       id: 1, 
       title: 'Luxury Fashion E-Commerce', 
       tech: 'React 19, Node.js 22, MongoDB 7.0', 
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop', 
+      image: luxeFashionImage, 
       description: 'Built a high-performance e-commerce platform with AR try-on features for a luxury fashion brand. The platform handles 50K+ products and processes 1000+ orders daily.',
       client: 'LuxeFashion',
       year: '2026'
@@ -474,7 +488,7 @@ const ZigzagSection = () => {
       id: 2, 
       title: 'Real Estate Investment Platform', 
       tech: 'Next.js 15, PostgreSQL 16, AWS', 
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop', 
+      image: realEstateImage, 
       description: 'Developed a comprehensive real estate platform with virtual property tours, investment calculators, and secure payment processing for property investments.',
       client: 'PropInvest',
       year: '2026'
@@ -483,7 +497,7 @@ const ZigzagSection = () => {
       id: 3, 
       title: 'AI-Powered Fitness App', 
       tech: 'React Native, TensorFlow.js, Firebase', 
-      image: 'https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&h=600&fit=crop', 
+      image: fitnessAppImage, 
       description: 'Created a mobile fitness app with AI-powered workout recommendations, real-time form correction, and social features for a fitness startup.',
       client: 'FitAI',
       year: '2026'
@@ -492,7 +506,7 @@ const ZigzagSection = () => {
       id: 4, 
       title: 'Content Marketing Platform', 
       tech: 'Vue 3, Python, OpenAI API', 
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop', 
+      image: contentPlatformImage, 
       description: 'Built an AI-powered content generation and marketing platform that helps businesses create, schedule, and analyze content performance.',
       client: 'ContentFlow',
       year: '2026'
@@ -560,11 +574,11 @@ const BeforeAfterSection = () => {
   return (
     <div className="before-after-container" ref={containerRef} onMouseMove={handleMouseMove}>
       <div className="before-image">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Before" />
+        <img src={beforeImage} alt="Before" />
         <div className="before-label">Before Campaign: 15K Monthly Visitors</div>
       </div>
       <div className="after-image" style={{ clipPath: `inset(0 0 0 ${sliderPosition}%)` }}>
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop" alt="After" />
+        <img src={afterImage} alt="After" />
         <div className="after-label">After Campaign: 85K Monthly Visitors</div>
       </div>
       <div className="slider-handle" style={{ left: `${sliderPosition}%` }}>
@@ -576,10 +590,17 @@ const BeforeAfterSection = () => {
 
 // Case Study Component for Section 9 - Updated for 2026
 const CaseStudySection = () => {
+  const navigate = useNavigate();
+
+  const handleViewProject = () => {
+    navigate('/portfolio/urbanstyle-case-study');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="case-study-container">
       <div className="case-study-background">
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=800&fit=crop" alt="Case Study" />
+        <img src={caseStudyImage} alt="Case Study" />
         <div className="case-study-overlay"></div>
       </div>
       <div className="case-study-content">
@@ -608,6 +629,9 @@ const CaseStudySection = () => {
             <span className="result-label">Customer Rating</span>
           </div>
         </div>
+        <button className="case-study-btn" onClick={handleViewProject}>
+          View Full Case Study →
+        </button>
       </div>
     </div>
   );
@@ -659,6 +683,7 @@ const IndustriesSection = () => {
 // Testimonials Component for Section 11
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const navigate = useNavigate();
 
   const testimonials = [
     { 
@@ -687,6 +712,11 @@ const TestimonialsSection = () => {
     },
   ];
 
+  const handleReadMore = () => {
+    navigate('/portfolio/testimonials');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="testimonials-container">
       <div className="testimonials-track" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
@@ -710,6 +740,9 @@ const TestimonialsSection = () => {
           />
         ))}
       </div>
+      <button className="testimonials-view-all" onClick={handleReadMore}>
+        View All Testimonials →
+      </button>
     </div>
   );
 };
@@ -718,11 +751,25 @@ const TestimonialsSection = () => {
 const Portfolio = () => {
   const navigate = useNavigate();
 
+  const handleStartJourney = () => {
+    navigate('/contact');
+    window.scrollTo(0, 0);
+  };
+
+  const handleExploreWork = () => {
+    document.getElementById('marketing-timeline').scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleScheduleCall = () => {
+    navigate('/contact');
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="portfolio-container">
       <Navbar />
       
-      {/* 1. HERO SECTION */}
+      {/* 1. HERO SECTION - No background image, no scroll indicator */}
       <Section className="portfolio-hero-section">
         <div className="portfolio-hero-background">
           <div className="portfolio-hero-gradient"></div>
@@ -749,10 +796,10 @@ const Portfolio = () => {
             cutting-edge technology, and innovative strategies to help brands thrive in the modern digital landscape.
           </p>
           <div className="hero-buttons">
-            <button className="btn btn-primary" onClick={() => navigate('/contact')}>
+            <button className="btn btn-primary" onClick={handleStartJourney}>
               Start Your Journey
             </button>
-            <button className="btn btn-outline">
+            <button className="btn btn-outline" onClick={handleExploreWork}>
               Explore Our Work
             </button>
           </div>
@@ -793,24 +840,14 @@ const Portfolio = () => {
           </div>
           <div className="intro-right">
             <div className="intro-abstract">
-              <div className="abstract-grid"></div>
-              <div className="abstract-year">2026</div>
+              <img src={introAbstractImage} alt="Digital Excellence" className="intro-abstract-image" />
             </div>
           </div>
         </div>
       </Section>
 
-      {/* 3. FEATURED PROJECT SHOWCASE */}
-      <Section className="featured-projects-section">
-        <div className="section-header">
-          <h2 className="section-title">Featured <span className="gradient-text">Projects</span></h2>
-          <p className="section-subtitle">Our latest work from 2026</p>
-        </div>
-        <HorizontalScrollSection />
-      </Section>
-
-      {/* 4. DIGITAL MARKETING CAMPAIGN RESULTS */}
-      <Section className="marketing-timeline-section">
+      {/* 3. DIGITAL MARKETING CAMPAIGN RESULTS */}
+      <Section className="marketing-timeline-section" id="marketing-timeline">
         <div className="section-header">
           <h2 className="section-title">2026 Campaign <span className="gradient-text">Results</span></h2>
           <p className="section-subtitle">What we've achieved in our first year</p>
@@ -818,16 +855,7 @@ const Portfolio = () => {
         <TimelineSection />
       </Section>
 
-      {/* 5. WEB DEVELOPMENT PROJECTS */}
-      <Section className="web-dev-zigzag-section">
-        <div className="section-header">
-          <h2 className="section-title">Web Development <span className="gradient-text">Projects</span></h2>
-          <p className="section-subtitle">Built with the latest technologies</p>
-        </div>
-        <ZigzagSection />
-      </Section>
-
-      {/* 6. OUR PROJECT PROCESS */}
+      {/* 4. OUR PROJECT PROCESS */}
       <Section className="process-steps-section">
         <div className="section-header">
           <h2 className="section-title">Our Project <span className="gradient-text">Process</span></h2>
@@ -836,21 +864,12 @@ const Portfolio = () => {
         <ProcessStepsSection />
       </Section>
 
-      {/* 7. BEFORE & AFTER RESULTS */}
-      <Section className="before-after-section">
-        <div className="section-header">
-          <h2 className="section-title">Before & <span className="gradient-text">After</span></h2>
-          <p className="section-subtitle">Real results from real campaigns</p>
-        </div>
-        <BeforeAfterSection />
-      </Section>
-
-      {/* 8. CASE STUDY SECTION */}
+      {/* 5. CASE STUDY SECTION */}
       <Section className="case-study-section">
         <CaseStudySection />
       </Section>
 
-      {/* 9. INDUSTRIES WE SERVE */}
+      {/* 6. INDUSTRIES WE SERVE */}
       <Section className="industries-section">
         <div className="section-header">
           <h2 className="section-title">Industries We <span className="gradient-text">Serve</span></h2>
@@ -859,7 +878,7 @@ const Portfolio = () => {
         <IndustriesSection />
       </Section>
 
-      {/* 10. CLIENT TESTIMONIALS */}
+      {/* 7. CLIENT TESTIMONIALS */}
       <Section className="testimonials-section">
         <div className="section-header">
           <h2 className="section-title">Client <span className="gradient-text">Testimonials</span></h2>
@@ -868,7 +887,7 @@ const Portfolio = () => {
         <TestimonialsSection />
       </Section>
 
-      {/* 11. CALL TO ACTION SECTION */}
+      {/* 8. CALL TO ACTION SECTION */}
       <Section className="cta-section">
         <div className="cta-background"></div>
         <div className="cta-content">
@@ -880,10 +899,10 @@ const Portfolio = () => {
             Let's create something extraordinary together.
           </p>
           <div className="cta-buttons">
-            <button className="btn btn-primary btn-large" onClick={() => navigate('/contact')}>
+            <button className="btn btn-primary btn-large" onClick={handleStartJourney}>
               Start Your Project
             </button>
-            <button className="btn btn-outline btn-large">
+            <button className="btn btn-outline btn-large" onClick={handleScheduleCall}>
               Schedule a Call
             </button>
           </div>

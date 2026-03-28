@@ -193,40 +193,29 @@ const TypewriterText = ({ text, className, delay = 0 }) => {
   );
 };
 
-// Development Card Component with Blackest Filter
+// Development Card Component - No Hover Effects
 const DevelopmentCard = ({ card, index }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <motion.div
       className="dev-card-new"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       viewport={{ once: true }}
-      whileHover={{ y: -5 }}
     >
       <div className="dev-card-image">
         <img src={card.image} alt={card.title} />
-        {/* Blackest Filter Overlay */}
         <div className="dev-card-black-filter"></div>
-        <motion.div
-          className="dev-card-hover-content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: isHovered ? 1 : 0 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div className="dev-card-content">
           <h4>{card.title}</h4>
           <p>{card.shortDesc}</p>
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   );
 };
 
-// Timeline Item Component
+// Timeline Item Component - No Hover Effects
 const TimelineItem = ({ service, index }) => {
   const itemRef = useRef(null);
   const isInView = useInView(itemRef, { once: true, amount: 0.3 });
@@ -244,10 +233,7 @@ const TimelineItem = ({ service, index }) => {
         <div className="marker-line"></div>
       </div>
 
-      <motion.div
-        className="timeline-card"
-        whileHover={{ y: -5, transition: { duration: 0.2 } }}
-      >
+      <div className="timeline-card">
         <div className="card-icon">{service.icon}</div>
         <div className="card-content">
           <h3>{service.title}</h3>
@@ -256,12 +242,12 @@ const TimelineItem = ({ service, index }) => {
             <span className="stat-badge">{service.stats}</span>
           </div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
 
-// Testimonial Slider Component
+// Testimonial Slider Component - No Hover Effects
 const TestimonialSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -548,7 +534,7 @@ const Navbar = () => {
         <div className="nav-right">
           <button
             className="btn-nav"
-            onClick={() => handleNavigation("/contact")}
+            onClick={() => handleNavigation("/get-started")}
           >
             Get Started
           </button>
@@ -566,7 +552,7 @@ const Navbar = () => {
   );
 };
 
-// Footer Component
+// Footer Component - No Hover Effects
 const Footer = () => {
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
@@ -778,11 +764,12 @@ const Footer = () => {
   );
 };
 
-// Counter Component
+// Counter Component - MODIFIED to only animate ONCE
 const Counter = ({ end, duration = 2000, suffix = "" }) => {
   const [count, setCount] = useState(0);
   const countRef = useRef(null);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const animationTimerRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -792,23 +779,44 @@ const Counter = ({ end, duration = 2000, suffix = "" }) => {
             setHasAnimated(true);
             let start = 0;
             const increment = end / (duration / 16);
+            
             const timer = setInterval(() => {
               start += increment;
               if (start >= end) {
                 setCount(end);
                 clearInterval(timer);
+                animationTimerRef.current = null;
               } else {
                 setCount(Math.floor(start));
               }
             }, 16);
+            
+            animationTimerRef.current = timer;
+            
+            // Clean up timer if component unmounts
+            return () => {
+              if (animationTimerRef.current) {
+                clearInterval(animationTimerRef.current);
+              }
+            };
           }
         });
       },
-      { threshold: 0.5, once: true },
+      { threshold: 0.3, once: true } // once: true ensures it only triggers once
     );
-    if (countRef.current) observer.observe(countRef.current);
+    
+    const currentRef = countRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+    
     return () => {
-      if (countRef.current) observer.unobserve(countRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+      if (animationTimerRef.current) {
+        clearInterval(animationTimerRef.current);
+      }
     };
   }, [end, duration, hasAnimated]);
 
@@ -820,7 +828,7 @@ const Counter = ({ end, duration = 2000, suffix = "" }) => {
   );
 };
 
-// Instagram Live Post Container Component
+// Instagram Live Post Container Component - No Hover Effects
 const InstagramLiveContainer = () => {
   const [currentPost, setCurrentPost] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -1007,8 +1015,6 @@ const Home = () => {
     };
   }, []);
 
-  const scrollToNext = () =>
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   const handleButtonClick = (path) => {
     navigate(path);
     window.scrollTo(0, 0);
@@ -1244,12 +1250,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="scroll-indicator" onClick={scrollToNext}>
-          <div className="mouse">
-            <div className="wheel"></div>
-          </div>
-          <div className="scroll-text">Scroll</div>
-        </div>
       </Section>
 
       {/* ABOUT SECTION - WE SHAPE DIGITAL EXCELLENCE - LEFT IMAGE RIGHT CONTENT */}
@@ -1326,14 +1326,12 @@ const Home = () => {
               </div>
             </div>
             
-            <motion.button 
+            <button 
               className="btn-about-more"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
               onClick={() => handleButtonClick("/about")}
             >
               Learn More About Us <span className="btn-arrow">→</span>
-            </motion.button>
+            </button>
           </motion.div>
         </div>
       </Section>
@@ -1347,20 +1345,6 @@ const Home = () => {
           <div className="vertical-timeline">
             {marketingServices.map((service, index) => (
               <TimelineItem key={index} service={service} index={index} />
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* DEVELOPMENT SOLUTIONS - With Blackest Filter */}
-      <Section className="development-cards-new-section" id="development">
-        <div className="cards-new-container">
-          <h2 className="section-title text-center">
-            Development <span className="gradient-text">Solutions</span>
-          </h2>
-          <div className="cards-grid">
-            {developmentCards.map((card, index) => (
-              <DevelopmentCard key={card.id} card={card} index={index} />
             ))}
           </div>
         </div>
@@ -1385,7 +1369,7 @@ const Home = () => {
         </div>
       </Section>
 
-      {/* PORTFOLIO SECTION - BACKGROUND REMOVED */}
+      {/* PORTFOLIO SECTION - Counter numbers animate only ONCE */}
       <Section className="achievements-perfect-section" id="portfolio">
         <div className="achievements-perfect-container">
           <div className="section-header-wrapper">
@@ -1409,7 +1393,6 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -5 }}
               >
                 <div className="achievement-perfect-icon">
                   {achievement.icon}
@@ -1463,7 +1446,6 @@ const Home = () => {
       <Section className="cta-premium-section" id="contact">
         <div
           className="cta-premium-background"
-          // style={{ backgroundImage: `url(${ctaBg})` }}
         ></div>
         <div className="cta-premium-container">
           <div className="cta-premium-content">
@@ -1476,7 +1458,7 @@ const Home = () => {
             <div className="cta-premium-buttons">
               <button
                 className="btn btn-primary btn-xxl"
-                onClick={() => handleButtonClick("/contact")}
+                onClick={() => handleButtonClick("/get-started")}
               >
                 Start Your Project <span className="btn-arrow">→</span>
               </button>

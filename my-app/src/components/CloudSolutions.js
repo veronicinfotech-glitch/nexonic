@@ -1,4 +1,4 @@
-// CloudSolutions.js - Updated with Consistent Navbar and Footer
+// CloudSolutions.js - Updated with Consistent Navbar and Footer - No Scroll Indicator
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
@@ -263,7 +263,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -375,12 +375,9 @@ const Footer = () => {
   );
 };
 
-// Section 1: Hero Section - Full Screen with Simple Design
+// Section 1: Hero Section - Full Screen with Simple Design - No Scroll Indicator
 const HeroSection = () => {
   const navigate = useNavigate();
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.9]);
 
   return (
     <div className="cs-hero">
@@ -457,7 +454,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button className="cs-btn-primary" onClick={() => navigate('/contact')}>
+          <button className="cs-btn-primary" onClick={() => navigate('/about')}>
             Start Your Journey
             <span className="cs-btn-arrow">→</span>
           </button>
@@ -470,15 +467,12 @@ const HeroSection = () => {
         </motion.div>
       </div>
 
-      <div className="cs-scroll-indicator">
-        <span>Scroll to explore</span>
-        <div className="cs-scroll-line"></div>
-      </div>
+      {/* Scroll indicator removed */}
     </div>
   );
 };
 
-// Section 2: Cloud Ecosystem Flow
+// Section 2: Cloud Ecosystem Flow - No Hover Effects
 const EcosystemSection = () => {
   const services = [
     { title: "Compute", icon: "💻", description: "Scalable virtual machines and containers with auto-scaling capabilities", color: "#C6FF00", metric: "99.99% Uptime", details: "EC2, Lambda, Kubernetes" },
@@ -531,7 +525,7 @@ const EcosystemSection = () => {
   );
 };
 
-// Section 3: Architecture Visual Section
+// Section 3: Architecture Visual Section - No Hover Effects
 const ArchitectureSection = () => {
   const [activeLayer, setActiveLayer] = useState(null);
   
@@ -581,7 +575,7 @@ const ArchitectureSection = () => {
   );
 };
 
-// Section 4: Performance & Scalability Section
+// Section 4: Performance & Scalability Section - No Hover Effects
 const PerformanceSection = () => {
   const metrics = [
     { label: "Auto-scaling Response", value: "0.3s", target: 0.95 },
@@ -662,7 +656,7 @@ const PerformanceSection = () => {
   );
 };
 
-// Section 5: Security Section - Updated with Cards
+// Section 5: Security Section - No Hover Effects
 const SecuritySection = () => {
   const [activeFeature, setActiveFeature] = useState(null);
   
@@ -801,7 +795,7 @@ const SecuritySection = () => {
   );
 };
 
-// Section 6: Global Infrastructure Map - Simplified
+// Section 6: Global Infrastructure Map - No Hover Effects
 const GlobalMapSection = () => {
   const [hoveredRegion, setHoveredRegion] = useState(null);
   
@@ -923,7 +917,7 @@ const GlobalMapSection = () => {
   );
 };
 
-// Section 7: Why Choose Our Cloud
+// Section 7: Why Choose Our Cloud - No Hover Effects
 const WhyChooseSection = () => {
   const [activePoint, setActivePoint] = useState(0);
   
@@ -955,7 +949,6 @@ const WhyChooseSection = () => {
                 key={index} 
                 className={`cs-point ${activePoint === index ? 'active' : ''}`}
                 onClick={() => setActivePoint(index)}
-                whileHover={{ x: 10 }}
               >
                 <div className="cs-point-icon">{point.icon}</div>
                 <div className="cs-point-content">
@@ -1051,7 +1044,7 @@ const CTASection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <button className="cs-cta-primary" onClick={() => navigate('/contact')}>
+          <button className="cs-cta-primary" onClick={() => navigate('/get-started')}>
             Start Free Trial
             <span className="cs-btn-arrow">→</span>
           </button>
@@ -1106,9 +1099,9 @@ const CloudSolutions = () => {
         <SecuritySection />
       </Section>
 
-      <Section className="cs-global-section">
+      {/* <Section className="cs-global-section">
         <GlobalMapSection />
-      </Section>
+      </Section> */}
 
       <Section className="cs-why-section">
         <WhyChooseSection />

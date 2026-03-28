@@ -5,6 +5,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import './MobileWebDevelopment.css';
 import logo from "../image/logo.jpg";
 
+// Import local images for Intro Section
+import introMainImage from "../image/W.jpg";
+import codeScreenImage from "../image/Back.jpg";
+import dashboardImage from "../image/1.png";
+
+// Import images for Web Services
+import frontendImage from "../image/F.jpg";
+import backendImage from "../image/Back.jpg";
+import fullstackImage from "../image/full.jpg";
+import apiImage from "../image/Api1.jpg";
+
+// Import images for Mobile Services
+import iosImage from "../image/1.png";
+import androidImage from "../image/1.png";
+import crossPlatformImage from "../image/1.png";
+
 // Section Wrapper with animation
 const Section = ({ children, className = '', id = '' }) => {
   const sectionRef = useRef(null);
@@ -225,7 +241,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -337,7 +353,7 @@ const Footer = () => {
   );
 };
 
-// Section 1: HERO SECTION - Simple with C6FF00 colors
+// Section 1: HERO SECTION - No Scroll Indicator
 const HeroSection = () => {
   const navigate = useNavigate();
 
@@ -407,42 +423,28 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <motion.button 
+          <button 
             className="dev-btn-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={handleStartProject}
           >
             Start Development Project
             <span className="btn-arrow">→</span>
-          </motion.button>
-          <motion.button 
+          </button>
+          <button 
             className="dev-btn-outline"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={handleViewProcess}
           >
             View Development Process
-          </motion.button>
+          </button>
         </motion.div>
       </div>
 
-      <motion.div 
-        className="dev-scroll-indicator"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        onClick={() => {
-          document.getElementById('dev-intro').scrollIntoView({ behavior: 'smooth' });
-        }}
-      >
-        <span>Explore Our Work</span>
-        <div className="dev-scroll-line"></div>
-      </motion.div>
+      {/* Scroll indicator removed */}
     </div>
   );
 };
 
-// Section 2: DEVELOPMENT INTRODUCTION - Split Layout with Online Images
+// Section 2: DEVELOPMENT INTRODUCTION - Single Image
 const IntroSection = () => {
   return (
     <div className="dev-intro" id="dev-intro">
@@ -487,26 +489,13 @@ const IntroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="dev-intro-image-grid">
-            <div className="dev-intro-image-main">
-              <img 
-                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=500&fit=crop" 
-                alt="Developer working on code"
-              />
-              <div className="dev-image-overlay-gradient"></div>
-            </div>
-            <div className="dev-intro-image-small">
-              <img 
-                src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop" 
-                alt="Code on screen"
-              />
-            </div>
-            <div className="dev-intro-image-small">
-              <img 
-                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop" 
-                alt="Dashboard analytics"
-              />
-            </div>
+          <div className="dev-intro-single-image">
+            <img 
+              src={introMainImage} 
+              alt="Developer working on code"
+              className="dev-intro-main-single-image"
+            />
+            <div className="dev-image-overlay-gradient"></div>
           </div>
         </motion.div>
       </div>
@@ -521,28 +510,28 @@ const WebServicesSection = () => {
       id: 1,
       title: 'Frontend Development',
       description: 'Build interactive and responsive interfaces using React, Vue.js, and modern JavaScript frameworks. We create engaging user experiences that load fast and work seamlessly across all devices.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      image: frontendImage,
       color: '#C6FF00'
     },
     {
       id: 2,
       title: 'Backend Development',
       description: 'Create secure and scalable backend systems using Node.js, Python, and cloud infrastructure. We design robust APIs, database architectures, and server-side logic that power your applications.',
-      image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=600&fit=crop',
+      image: backendImage,
       color: '#7CFF3A'
     },
     {
       id: 3,
       title: 'Full Stack Development',
       description: 'End-to-end development combining frontend and backend expertise. We build complete web applications with seamless integration, optimal performance, and maintainable codebases.',
-      image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=600&fit=crop',
+      image: fullstackImage,
       color: '#B6FF1A'
     },
     {
       id: 4,
       title: 'API Development',
       description: 'Design and implement RESTful and GraphQL APIs that power your applications. We create well-documented, secure, and high-performance APIs that enable seamless integration.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+      image: apiImage,
       color: '#C6FF00'
     }
   ];
@@ -607,13 +596,13 @@ const MobileServicesSection = () => {
           >
             <div className="dev-mockup-stack">
               <div className="dev-mockup dev-mockup-1">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=800&fit=crop" alt="iOS App" />
+                <img src={iosImage} alt="iOS App" />
               </div>
               <div className="dev-mockup dev-mockup-2">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=800&fit=crop" alt="Android App" />
+                <img src={androidImage} alt="Android App" />
               </div>
               <div className="dev-mockup dev-mockup-3">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=800&fit=crop" alt="Cross Platform" />
+                <img src={crossPlatformImage} alt="Cross Platform" />
               </div>
             </div>
           </motion.div>
@@ -691,32 +680,22 @@ const TechnologiesSection = () => {
       <div className="dev-horizontal-scroll">
         <div className="dev-tech-track">
           {technologies.map((tech, index) => (
-            <motion.div 
-              key={index} 
-              className="dev-tech-item"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div key={index} className="dev-tech-item">
               <div className="dev-tech-icon" style={{ background: `${tech.color}20` }}>
                 <span style={{ color: tech.color }}>{tech.icon}</span>
               </div>
               <h4>{tech.name}</h4>
               <span className="dev-tech-level" style={{ background: `${tech.color}20`, color: tech.color }}>{tech.level}</span>
-            </motion.div>
+            </div>
           ))}
           {technologies.map((tech, index) => (
-            <motion.div 
-              key={`dup-${index}`} 
-              className="dev-tech-item"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div key={`dup-${index}`} className="dev-tech-item">
               <div className="dev-tech-icon" style={{ background: `${tech.color}20` }}>
                 <span style={{ color: tech.color }}>{tech.icon}</span>
               </div>
               <h4>{tech.name}</h4>
               <span className="dev-tech-level" style={{ background: `${tech.color}20`, color: tech.color }}>{tech.level}</span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -922,9 +901,9 @@ const MobileWebDevelopment = () => {
         <WebServicesSection />
       </Section>
 
-      <Section className="dev-section dev-mobile-section">
+      {/* <Section className="dev-section dev-mobile-section">
         <MobileServicesSection />
-      </Section>
+      </Section> */}
 
       <Section className="dev-section dev-tech-section">
         <TechnologiesSection />

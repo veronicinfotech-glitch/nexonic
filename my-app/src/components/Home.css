@@ -278,7 +278,7 @@ body {
   transition: all 0.2s ease;
 }
 
-/* Footer Styles */
+/* Footer Styles - No Hover Effects */
 .footer {
   background: #000000;
   padding: 80px 0 20px;
@@ -337,14 +337,8 @@ body {
   justify-content: center;
   color: #C6FF00;
   text-decoration: none;
-  transition: all 0.2s ease;
   font-size: 18px;
   border: 1px solid #222222;
-}
-
-.social-link:hover {
-  background: #C6FF00;
-  color: #000000;
 }
 
 .footer-links {
@@ -383,14 +377,9 @@ body {
 .footer-column ul li a {
   color: #6B7280;
   text-decoration: none;
-  transition: color 0.2s ease;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
-}
-
-.footer-column ul li a:hover {
-  color: #C6FF00;
 }
 
 .footer-bottom {
@@ -412,12 +401,7 @@ body {
 .footer-bottom-right a {
   color: #6B7280;
   text-decoration: none;
-  transition: color 0.2s ease;
   cursor: pointer;
-}
-
-.footer-bottom-right a:hover {
-  color: #C6FF00;
 }
 
 /* Animation Classes */
@@ -442,14 +426,13 @@ body {
   color: #FFFFFF;
 }
 
-/* Buttons */
+/* Buttons - No Hover Effects */
 .btn {
   padding: 14px 36px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.2s ease;
   border: none;
   font-family: 'Poppins', sans-serif;
 }
@@ -459,21 +442,10 @@ body {
   color: #000000;
 }
 
-.btn-primary:hover {
-  background: #B6FF1A;
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(198, 255, 0, 0.3);
-}
-
 .btn-outline {
   background: transparent;
   color: #C6FF00;
   border: 2px solid #C6FF00;
-}
-
-.btn-outline:hover {
-  background: rgba(198, 255, 0, 0.1);
-  transform: translateY(-2px);
 }
 
 .btn-large {
@@ -489,12 +461,6 @@ body {
 .btn-arrow {
   margin-left: 8px;
   display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-.btn-primary:hover .btn-arrow,
-.btn-outline:hover .btn-arrow {
-  transform: translateX(5px);
 }
 
 /* Section Titles */
@@ -511,7 +477,7 @@ body {
   text-align: center;
 }
 
-/* HERO SECTION */
+/* HERO SECTION - Scroll Indicator Hidden */
 .hero-section {
   min-height: 100vh;
   position: relative;
@@ -677,53 +643,16 @@ body {
   margin-bottom: 45px;
 }
 
+/* Scroll indicator completely removed - no display */
 .scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
+  display: none;
 }
 
-.mouse {
-  width: 26px;
-  height: 40px;
-  border: 2px solid rgba(198, 255, 0, 0.5);
-  border-radius: 20px;
-  position: relative;
+.mouse, .wheel, .scroll-text {
+  display: none;
 }
 
-.wheel {
-  width: 4px;
-  height: 8px;
-  background: #C6FF00;
-  border-radius: 2px;
-  position: absolute;
-  top: 6px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: scrollWheel 2s infinite;
-}
-
-@keyframes scrollWheel {
-  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
-  100% { opacity: 0; transform: translateX(-50%) translateY(15px); }
-}
-
-.scroll-text {
-  font-size: 12px;
-  color: #9CA3AF;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* BRAND SECTION - SPLIT LAYOUT (Left Image - Right Content) */
+/* BRAND SECTION - SPLIT LAYOUT (Left Image - Right Content) - No Hover Effects */
 .brand-section {
   padding: 120px 50px;
   background: #000000;
@@ -752,7 +681,7 @@ body {
   z-index: 2;
 }
 
-/* Left Side - Image */
+/* Left Side - Image - No Hover Effects */
 .brand-image-side {
   flex: 1;
   position: relative;
@@ -763,25 +692,12 @@ body {
   border-radius: 30px;
   overflow: hidden;
   box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
-  /* border: 1px solid rgba(198, 255, 0, 0.3); */
-  transition: all 0.3s ease;
-}
-
-.brand-image-wrapper-split:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 40px 60px rgba(198, 255, 0, 0.1);
-  border-color: rgba(198, 255, 0, 0.6);
 }
 
 .brand-main-image {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform 0.5s ease;
-}
-
-.brand-image-wrapper-split:hover .brand-main-image {
-  transform: scale(1.05);
 }
 
 .image-overlay-glow {
@@ -795,56 +711,7 @@ body {
   z-index: 1;
 }
 
-.image-decoration-circles {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  z-index: 2;
-}
-
-.image-decoration-circles span {
-  position: absolute;
-  border: 2px solid rgba(198, 255, 0, 0.3);
-  border-radius: 50%;
-  animation: circlePulse 3s ease-in-out infinite;
-}
-
-.image-decoration-circles span:nth-child(1) {
-  width: 80px;
-  height: 80px;
-  top: -40px;
-  right: -40px;
-  animation-delay: 0s;
-}
-
-.image-decoration-circles span:nth-child(2) {
-  width: 120px;
-  height: 120px;
-  top: -60px;
-  right: -60px;
-  animation-delay: 0.5s;
-}
-
-.image-decoration-circles span:nth-child(3) {
-  width: 160px;
-  height: 160px;
-  top: -80px;
-  right: -80px;
-  animation-delay: 1s;
-}
-
-@keyframes circlePulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.8;
-    transform: scale(1.1);
-  }
-}
-
-/* Right Side - Content */
+/* Right Side - Content - No Hover Effects */
 .brand-content-side {
   flex: 1;
   padding: 20px;
@@ -934,13 +801,6 @@ body {
   padding: 15px 20px;
   border-radius: 20px;
   border: 1px solid rgba(34, 34, 34, 0.8);
-  transition: all 0.3s ease;
-}
-
-.feature-item:hover {
-  transform: translateX(5px);
-  border-color: #C6FF00;
-  background: rgba(198, 255, 0, 0.05);
 }
 
 .feature-icon-split {
@@ -968,7 +828,6 @@ body {
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
   border: 2px solid #C6FF00;
   background: transparent;
   color: #C6FF00;
@@ -978,18 +837,7 @@ body {
   gap: 8px;
 }
 
-.btn-about-more:hover {
-  background: #C6FF00;
-  color: #000000;
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(198, 255, 0, 0.3);
-}
-
-.btn-about-more:hover .btn-arrow {
-  transform: translateX(5px);
-}
-
-/* MARKETING TIMELINE SECTION - BACKGROUND REMOVED */
+/* MARKETING TIMELINE SECTION - No Hover Effects */
 .marketing-timeline-section {
   padding: 100px 50px;
   background: #000000;
@@ -1077,14 +925,8 @@ body {
   border: 1px solid #222222;
   border-radius: 30px;
   position: relative;
-  transition: all 0.2s ease;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   z-index: 15;
-}
-
-.timeline-card:hover {
-  transform: translateY(-5px);
-  border-color: #C6FF00;
 }
 
 .timeline-item.left .timeline-card {
@@ -1123,12 +965,6 @@ body {
   background: rgba(198, 255, 0, 0.1);
   border: 1px solid rgba(198, 255, 0, 0.3);
   border-radius: 30px;
-  transition: all 0.2s ease;
-}
-
-.card-stats:hover {
-  background: rgba(198, 255, 0, 0.2);
-  transform: scale(1.05);
 }
 
 .stat-badge {
@@ -1138,7 +974,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* DEVELOPMENT SOLUTIONS */
+/* DEVELOPMENT SOLUTIONS - No Hover Effects */
 .development-cards-new-section {
   padding: 100px 50px;
   background: #000000;
@@ -1162,13 +998,6 @@ body {
   overflow: hidden;
   aspect-ratio: 1/1;
   border: 2px solid transparent;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-  cursor: pointer;
-}
-
-.dev-card-new:hover {
-  border-color: #C6FF00;
-  transform: translateY(-5px);
 }
 
 .dev-card-image {
@@ -1182,15 +1011,27 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: brightness(0.7) contrast(1.1);
 }
 
-.dev-card-hover-content {
+.dev-card-black-filter {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.9);
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.dev-card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
@@ -1199,28 +1040,23 @@ body {
   text-align: center;
   padding: 20px;
   border: 2px solid #C6FF00;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  z-index: 2;
 }
 
-.dev-card-new:hover .dev-card-hover-content {
-  opacity: 1;
-}
-
-.dev-card-hover-content h4 {
+.dev-card-content h4 {
   color: #C6FF00;
   font-size: 22px;
   margin-bottom: 10px;
   font-family: 'Poppins', sans-serif;
 }
 
-.dev-card-hover-content p {
+.dev-card-content p {
   color: #FFFFFF;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
 }
 
-/* PROCESS SECTION */
+/* PROCESS SECTION - No Hover Effects */
 .process-modern-section {
   padding: 120px 50px;
   background: #000000;
@@ -1248,13 +1084,6 @@ body {
   padding: 40px 25px;
   position: relative;
   text-align: center;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.process-step-card:hover {
-  transform: translateY(-5px);
-  border-color: #C6FF00;
 }
 
 .process-step-number {
@@ -1286,7 +1115,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* ACHIEVEMENTS SECTION - BACKGROUND REMOVED */
+/* ACHIEVEMENTS SECTION - No Hover Effects */
 .achievements-perfect-section {
   padding: 120px 50px;
   background: #000000;
@@ -1355,13 +1184,6 @@ body {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(34, 34, 34, 0.8);
   border-radius: 40px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.achievement-perfect-card:hover {
-  transform: translateY(-5px);
-  border-color: #C6FF00;
 }
 
 .achievement-perfect-icon {
@@ -1389,7 +1211,7 @@ body {
   display: inline-block;
 }
 
-/* Testimonial Section */
+/* Testimonial Section - No Hover Effects */
 .testimonial-wrapper {
   max-width: 1100px;
   margin: 0 auto;
@@ -1503,7 +1325,6 @@ body {
   border: 2px solid #C6FF00;
   background: transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
   padding: 0;
 }
 
@@ -1512,7 +1333,7 @@ body {
   transform: scale(1.2);
 }
 
-/* INSTAGRAM LIVE SECTION */
+/* INSTAGRAM LIVE SECTION - No Hover Effects */
 .instagram-live-section {
   padding: 100px 50px;
   background: #000000;
@@ -1583,12 +1404,7 @@ body {
   border: 1px solid #222222;
   border-radius: 30px;
   overflow: hidden;
-  transition: border-color 0.2s ease;
   cursor: pointer;
-}
-
-.instagram-live-container:hover {
-  border-color: #C6FF00;
 }
 
 .instagram-header-mini {
@@ -1623,11 +1439,6 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.2s ease;
-}
-
-.instagram-live-container:hover .instagram-post-image {
-  transform: scale(1.05);
 }
 
 .live-badge-large {
@@ -1683,13 +1494,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-}
-
-.instagram-live-container:hover .instagram-overlay {
-  opacity: 1;
 }
 
 .instagram-profile {
@@ -1740,12 +1544,6 @@ body {
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  pointer-events: auto;
-}
-
-.instagram-follow-button:hover {
-  transform: scale(1.05);
 }
 
 .instagram-progress {
@@ -1790,17 +1588,12 @@ body {
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 5px;
 }
 
-.instagram-handle:hover {
-  color: #FFFFFF;
-}
-
-/* CTA SECTION */
+/* CTA SECTION - No Hover Effects */
 .cta-premium-section {
   padding: 150px 50px;
   position: relative;
@@ -1852,22 +1645,10 @@ body {
   border: 2px solid #000000;
 }
 
-.cta-premium-buttons .btn-primary:hover {
-  background: transparent;
-  color: #000000;
-  border-color: #000000;
-}
-
 .cta-premium-buttons .btn-outline {
   background: transparent;
   color: #000000;
   border: 2px solid #000000;
-}
-
-.cta-premium-buttons .btn-outline:hover {
-  background: #000000;
-  color: #C6FF00;
-  border-color: #000000;
 }
 
 /* Responsive Design */
@@ -2015,6 +1796,9 @@ body {
   .feature-item { padding: 12px 15px; }
   .feature-icon-split { font-size: 28px; }
   .feature-text h4 { font-size: 16px; }
+  
+  .dev-card-content h4 { font-size: 18px; }
+  .dev-card-content p { font-size: 12px; }
 }
 
 @media (max-width: 480px) {
@@ -2049,6 +1833,9 @@ body {
   .brand-subtitle { font-size: 12px; }
   .btn-about-more { padding: 12px 24px; font-size: 14px; }
   .brand-section { padding: 80px 20px; }
+  
+  .dev-card-content h4 { font-size: 16px; }
+  .dev-card-content p { font-size: 11px; }
 }
 
 /* Custom Scrollbar */
@@ -2065,47 +1852,87 @@ body {
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #B6FF1A;
+/* Add this to your Home.css file - Hover effect only changes text color to black */
+
+/* CTA SECTION - Button hover effect - only text color changes to black */
+.cta-premium-section {
+  padding: 150px 50px;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Add to your existing CSS file - Blackest Filter for Development Cards */
-
-.dev-card-black-filter {
+.cta-premium-background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.6) 100%);
-  z-index: 1;
-  transition: all 0.3s ease;
-  pointer-events: none;
+  background: linear-gradient(135deg, #C6FF00 0%, #7CFF3A 100%);
+  z-index: 0;
 }
 
-.dev-card-new:hover .dev-card-black-filter {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
-}
-
-.dev-card-image {
+.cta-premium-container {
+  max-width: 1000px;
+  margin: 0 auto;
   position: relative;
-  width: 100%;
-  height: 100%;
+  z-index: 1;
+  text-align: center;
 }
 
-.dev-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.7) contrast(1.1);
-  transition: filter 0.3s ease;
+.cta-premium-title {
+  font-size: 56px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #000000;
+  font-family: 'Orbitron', sans-serif;
 }
 
-.dev-card-new:hover .dev-card-image img {
-  filter: brightness(1) contrast(1.2);
+.cta-premium-description {
+  font-size: 22px;
+  color: #111111;
+  margin-bottom: 50px;
+  font-family: 'Inter', sans-serif;
 }
 
-.dev-card-hover-content {
-  z-index: 2;
+.cta-premium-buttons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Start Your Project Button - Default state (white text) */
+.cta-premium-buttons .btn-primary {
+  background: #000000;
+  color: #C6FF00; /* Default text color - neon green */
+  border: 2px solid #000000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect - ONLY text color changes to black */
+.cta-premium-buttons .btn-primary:hover {
+  color: #89f909 !important; /* Text changes to black on hover */
+  background: #000000; /* Background remains black */
+  border: 2px solid #000000; /* Border remains black */
+}
+
+/* Arrow icon also changes color with text */
+.cta-premium-buttons .btn-primary:hover .btn-arrow {
+  color: #a8f60c;
+}
+
+/* Contact Us Button - Keep original styling */
+.cta-premium-buttons .btn-outline {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Contact Us Button hover effect - keep original */
+.cta-premium-buttons .btn-outline:hover {
+  background: #000000;
+  color: #C6FF00;
+  border-color: #000000;
 }

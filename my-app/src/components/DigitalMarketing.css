@@ -1,4 +1,4 @@
-/* DigitalMarketing.css - Complete with Consistent Navbar and Footer */
+/* DigitalMarketing.css - No Hover Effects, Scroll Indicator Removed */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 * {
@@ -19,7 +19,7 @@ body {
   background: #000000;
 }
 
-/* ==================== NAVBAR STYLES - SAME AS HOME, SERVICES, ABOUT ==================== */
+/* ==================== NAVBAR STYLES ==================== */
 .navbar {
   position: fixed;
   top: 0;
@@ -82,16 +82,11 @@ body {
   color: #FFFFFF;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
   background: none;
   border: none;
-}
-
-.nav-link:hover {
-  color: #C6FF00;
 }
 
 .nav-link.active {
@@ -165,14 +160,9 @@ body {
 .main-dropdown-menu li a {
   color: #9CA3AF;
   text-decoration: none;
-  transition: color 0.2s ease;
   display: block;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
-}
-
-.main-dropdown-menu li a:hover {
-  color: #C6FF00;
 }
 
 /* Sub-dropdown Styles */
@@ -231,14 +221,9 @@ body {
 .sub-dropdown-menu li a {
   color: #9CA3AF;
   text-decoration: none;
-  transition: color 0.2s ease;
   display: block;
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
-}
-
-.sub-dropdown-menu li a:hover {
-  color: #C6FF00;
 }
 
 .nav-right {
@@ -253,16 +238,10 @@ body {
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
   border: 2px solid #C6FF00;
   background: transparent;
   color: #C6FF00;
   font-family: 'Poppins', sans-serif;
-}
-
-.btn-nav:hover {
-  background: #C6FF00;
-  color: #000000;
 }
 
 .mobile-menu-icon {
@@ -279,7 +258,7 @@ body {
   transition: all 0.2s ease;
 }
 
-/* ==================== FOOTER STYLES - SAME AS HOME, SERVICES, ABOUT ==================== */
+/* ==================== FOOTER STYLES - NO HOVER EFFECTS ==================== */
 .footer {
   background: #000000;
   padding: 80px 0 20px;
@@ -338,14 +317,8 @@ body {
   justify-content: center;
   color: #C6FF00;
   text-decoration: none;
-  transition: all 0.2s ease;
   font-size: 18px;
   border: 1px solid #222222;
-}
-
-.social-link:hover {
-  background: #C6FF00;
-  color: #000000;
 }
 
 .footer-links {
@@ -384,14 +357,9 @@ body {
 .footer-column ul li a {
   color: #6B7280;
   text-decoration: none;
-  transition: color 0.2s ease;
   font-size: 14px;
   font-family: 'Inter', sans-serif;
   cursor: pointer;
-}
-
-.footer-column ul li a:hover {
-  color: #C6FF00;
 }
 
 .footer-bottom {
@@ -413,12 +381,7 @@ body {
 .footer-bottom-right a {
   color: #6B7280;
   text-decoration: none;
-  transition: color 0.2s ease;
   cursor: pointer;
-}
-
-.footer-bottom-right a:hover {
-  color: #C6FF00;
 }
 
 /* ==================== Section Animation ==================== */
@@ -433,7 +396,7 @@ body {
   transform: translateY(0);
 }
 
-/* ==================== Hero Section - ONLY SECTION WITH ANIMATIONS ==================== */
+/* ==================== Hero Section - Animations Kept, Scroll Indicator Removed ==================== */
 .dm-hero {
   min-height: 100vh;
   width: 100%;
@@ -575,13 +538,6 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  transition: all 0.2s ease;
-}
-
-.dm-btn-primary:hover {
-  background: #B6FF1A;
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(198, 255, 0, 0.3);
 }
 
 .dm-btn-outline {
@@ -597,37 +553,11 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  transition: all 0.2s ease;
 }
 
-.dm-btn-outline:hover {
-  background: rgba(198, 255, 0, 0.1);
-  transform: translateY(-2px);
-}
-
+/* Scroll indicator removed */
 .dm-scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  z-index: 10;
-  cursor: pointer;
-}
-
-.dm-scroll-indicator span {
-  display: block;
-  font-size: 12px;
-  color: #6B7280;
-  margin-bottom: 8px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.dm-scroll-line {
-  width: 2px;
-  height: 50px;
-  background: linear-gradient(180deg, #C6FF00, transparent);
-  margin: 0 auto;
+  display: none;
 }
 
 /* ==================== Section Header Styles ==================== */
@@ -664,7 +594,7 @@ body {
   margin: 0 auto;
 }
 
-/* ==================== Services Section - Zig Zag ==================== */
+/* ==================== Services Section - Zig Zag - NO HOVER ==================== */
 .dm-services {
   padding: 100px 50px;
   background: #000000;
@@ -713,11 +643,6 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.2s ease;
-}
-
-.dm-zigzag-image:hover img {
-  transform: scale(1.05);
 }
 
 .dm-image-overlay {
@@ -758,16 +683,9 @@ body {
   align-items: center;
   gap: 8px;
   font-family: 'Poppins', sans-serif;
-  transition: all 0.2s ease;
 }
 
-.dm-learn-more:hover {
-  background: #C6FF00;
-  color: #000000;
-  transform: translateX(5px);
-}
-
-/* ==================== Why Choose Us ==================== */
+/* ==================== Why Choose Us - NO HOVER ==================== */
 .dm-why-choose {
   padding: 100px 50px;
   background: #111111;
@@ -792,12 +710,6 @@ body {
   background: #111111;
   border: 1px solid #222222;
   border-radius: 20px;
-  transition: all 0.2s ease;
-}
-
-.dm-flow-item:hover {
-  border-color: #C6FF00;
-  transform: translateY(-5px);
 }
 
 .dm-flow-icon {
@@ -827,7 +739,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* ==================== Process Section ==================== */
+/* ==================== Process Section - NO HOVER ==================== */
 .dm-process {
   padding: 100px 50px;
   background: #000000;
@@ -857,7 +769,6 @@ body {
   align-items: center;
   justify-content: center;
   background: #000000;
-  transition: all 0.2s ease;
 }
 
 .dm-step-marker span {
@@ -873,12 +784,6 @@ body {
   background: #111111;
   border: 1px solid #222222;
   border-radius: 20px;
-  transition: all 0.2s ease;
-}
-
-.dm-step-content:hover {
-  border-color: #C6FF00;
-  transform: translateY(-5px);
 }
 
 .dm-step-icon {
@@ -900,7 +805,7 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
-/* ==================== Results Section ==================== */
+/* ==================== Results Section - NO HOVER ==================== */
 .dm-results {
   padding: 100px 50px;
   background: #111111;
@@ -920,12 +825,6 @@ body {
   background: #111111;
   border: 1px solid #222222;
   border-radius: 20px;
-  transition: all 0.2s ease;
-}
-
-.dm-stat-item:hover {
-  border-color: #C6FF00;
-  transform: translateY(-5px);
 }
 
 .dm-stat-icon {
@@ -947,7 +846,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-/* ==================== Developer Section ==================== */
+/* ==================== Developer Section - NO HOVER ==================== */
 .dm-developer {
   padding: 100px 50px;
   background: #000000;
@@ -971,11 +870,6 @@ body {
   object-fit: cover;
   border-radius: 20px;
   border: 1px solid #222222;
-  transition: transform 0.2s ease;
-}
-
-.dm-developer-image:hover {
-  transform: scale(1.02);
 }
 
 .dm-developer-right {
@@ -991,12 +885,6 @@ body {
   background: #111111;
   border: 1px solid #222222;
   border-radius: 20px;
-  transition: all 0.2s ease;
-}
-
-.dm-developer-topic:hover {
-  border-color: #C6FF00;
-  transform: translateX(5px);
 }
 
 .dm-topic-icon {
@@ -1036,7 +924,7 @@ body {
   margin-top: 10px;
 }
 
-/* ==================== Testimonials Section ==================== */
+/* ==================== Testimonials Section - NO HOVER ==================== */
 .dm-testimonials {
   padding: 100px 50px;
   background: #111111;
@@ -1056,12 +944,6 @@ body {
   border: 1px solid #222222;
   border-radius: 20px;
   position: relative;
-  transition: all 0.2s ease;
-}
-
-.dm-testimonial-item:hover {
-  border-color: #C6FF00;
-  transform: translateY(-5px);
 }
 
 .dm-testimonial-quote {
@@ -1252,18 +1134,13 @@ body {
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #B6FF1A;
-}
-
-/* ==================== MAIN NAVBAR LINK UNDERLINE EFFECTS ONLY ==================== */
+/* ==================== NAVBAR LINK UNDERLINE EFFECTS - KEPT ==================== */
 /* Main navigation links - Home, About, Services, Blog, Portfolio, Contact */
 .nav-links > li > .nav-link {
   position: relative;
   color: #FFFFFF;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.2s ease;
   font-size: 15px;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
@@ -1303,144 +1180,18 @@ body {
 }
 
 /* ==================== DROPDOWN LINKS - NO UNDERLINE ==================== */
-/* Dropdown menu links - NO underline effect */
-.main-dropdown-menu li a {
-  color: #9CA3AF;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  display: block;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
-  padding: 5px 0;
-}
-
-/* Remove underline for dropdown links */
-.main-dropdown-menu li a::after {
-  display: none;
-}
-
-.main-dropdown-menu li a:hover {
-  color: #C6FF00;
-  transform: translateX(5px);
-}
-
-/* Sub-dropdown links - NO underline */
-.sub-dropdown-menu li a {
-  color: #9CA3AF;
-  text-decoration: none;
-  font-size: 14px;
-  font-family: 'Poppins', sans-serif;
-  display: block;
-  padding: 5px 0;
-}
-
-/* Remove underline for sub-dropdown links */
-.sub-dropdown-menu li a::after {
-  display: none;
-}
-
-.sub-dropdown-menu li a:hover {
-  color: #C6FF00;
-  transform: translateX(5px);
-}
-
-/* Sub-dropdown toggle - NO underline */
-.sub-dropdown-toggle {
-  padding: 5px 0;
-}
-
-/* Remove underline for sub-dropdown toggle */
+.main-dropdown-menu li a::after,
+.sub-dropdown-menu li a::after,
 .sub-dropdown-toggle::after {
   display: none;
 }
 
 /* ==================== REMOVE ALL OTHER UNDERLINES ==================== */
-/* Remove underline from footer links */
 .footer-column ul li a::after,
-.footer-bottom-right a::after {
-  display: none;
-}
-
-/* Remove underline from service cards */
+.footer-bottom-right a::after,
 .read-more-btn::after,
-.dm-learn-more::after {
-  display: none;
-}
-
-/* Remove underline from buttons */
+.dm-learn-more::after,
 .btn-nav::after,
-.cta-btn-primary::after,
-.cta-btn-secondary::after,
-.stories-cta .cta-text::after {
-  display: none;
-}
-
-/* Remove underline from social links */
 .social-link::after {
-  display: none;
-}
-
-/* Remove underline from philosophy items */
-.philosophy-item::after {
-  display: none;
-}
-
-/* Remove underline from culture cards */
-.culture-square-card h3::after {
-  display: none;
-}
-
-/* Remove underline from work step cards */
-.work-step-card .step-title::after {
-  display: none;
-}
-
-/* Remove underline from story cards */
-.story-client::after {
-  display: none;
-}
-
-/* Remove underline from solution cards */
-.solution-card-horizontal h3::after {
-  display: none;
-}
-
-/* Remove underline from process steps */
-.dm-step-content h3::after {
-  display: none;
-}
-
-/* Remove underline from stat items */
-.dm-stat-label::after {
-  display: none;
-}
-
-/* Remove underline from developer topics */
-.dm-topic-content h3::after {
-  display: none;
-}
-
-/* Remove underline from testimonial items */
-.dm-testimonial-author strong::after {
-  display: none;
-}
-
-/* Remove underline from zigzag content */
-.dm-zigzag-content h3::after {
-  display: none;
-}
-
-/* Remove underline from flow items */
-.dm-flow-item h3::after {
-  display: none;
-}
-
-/* Remove underline from timeline cards */
-.timeline-card h3::after {
-  display: none;
-}
-
-/* Remove underline from achievement cards */
-.achievement-perfect-label::after {
   display: none;
 }

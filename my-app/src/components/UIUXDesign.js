@@ -1,4 +1,4 @@
-// UIUXDesign.js - Updated with Consistent Navbar and Footer
+// UIUXDesign.js - Updated with Consistent Navbar and Footer - No Scroll Indicator
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
@@ -225,7 +225,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -337,12 +337,9 @@ const Footer = () => {
   );
 };
 
-// Section 1: Hero Section
+// Section 1: Hero Section - No Scroll Indicator
 const HeroSection = () => {
   const navigate = useNavigate();
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.9]);
   
   const [typedText, setTypedText] = useState('');
   const fullText = 'Crafting Digital Experiences That Inspire';
@@ -425,23 +422,18 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button className="ui-btn-primary" onClick={() => navigate('/contact')}>
+          <button className="ui-btn-primary" onClick={() => navigate('/get-started')}>
             Start Your Project
             <span className="ui-btn-arrow">→</span>
           </button>
-          <button className="ui-btn-outline" onClick={() => {
-            document.getElementById('ui-horizontal').scrollIntoView({ behavior: 'smooth' });
-          }}>
-            View Our Work
+          <button className="ui-btn-outline" onClick={() => navigate('/portfolio')}>
+            View Portfolio
             <span className="ui-btn-arrow">→</span>
           </button>
         </motion.div>
       </div>
 
-      <div className="ui-scroll-hint">
-        <span>Scroll</span>
-        <div className="ui-scroll-line"></div>
-      </div>
+      {/* Scroll indicator removed */}
     </div>
   );
 };
@@ -692,11 +684,11 @@ const CTASection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <button className="ui-cta-primary" onClick={() => navigate('/contact')}>
+          <button className="ui-cta-primary" onClick={() => navigate('/get-started')}>
             Start Your Project
             <span className="ui-btn-arrow">→</span>
           </button>
-          <button className="ui-cta-secondary" onClick={() => navigate('/contact')}>
+          <button className="ui-cta-secondary" onClick={() => navigate('/portfolio')}>
             View Portfolio
             <span className="ui-btn-arrow">→</span>
           </button>

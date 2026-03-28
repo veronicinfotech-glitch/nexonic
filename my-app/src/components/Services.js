@@ -7,9 +7,9 @@ import logo from "../image/logo.jpg";
 
 // Import images for cards
 import marketingImg from "../image/DigitalMarketing.jpg";
-import webDevImg from "../image/Mobile & WebDevelopment.jpg";
+import webDevImg from "../image/1.png";
 import uiuxImg from "../image/uiux.jpg";
-import cloudImg from "../image/Cloudsolutions.png";
+import cloudImg from "../image/2.png";
 import mobileAppImg from "../image/App.jpg";
 import apiImg from "../image/API.jpg";
 import devopsImg from "../image/DEVOPS.png";
@@ -234,7 +234,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <button className="btn-nav" onClick={() => handleNavigation('/contact')}>Get Started</button>
+          <button className="btn-nav" onClick={() => handleNavigation('/get-started')}>Get Started</button>
           <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
@@ -246,7 +246,7 @@ const Navbar = () => {
   );
 };
 
-// Footer Component
+// Footer Component - No Hover Effects
 const Footer = () => {
   const navigate = useNavigate();
   const currentYear = new Date().getFullYear();
@@ -421,40 +421,24 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <motion.button 
+          <button 
             className="btn-primary"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => {
               document.getElementById('core-services').scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Explore Our Services
-          </motion.button>
-          <motion.button 
+          </button>
+          <button 
             className="btn-outline"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => {
               document.getElementById('partner').scrollIntoView({ behavior: 'smooth' });
             }}
           >
             Partner With Us
-          </motion.button>
+          </button>
         </motion.div>
       </div>
-
-      <motion.div 
-        className="scroll-indicator"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        onClick={() => {
-          document.getElementById('intro').scrollIntoView({ behavior: 'smooth' });
-        }}
-      >
-        <span>Discover Our Services</span>
-        <div className="scroll-line"></div>
-      </motion.div>
     </div>
   );
 };
@@ -503,27 +487,20 @@ const IntroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {/* <div className="intro-image-gallery"> */}
-            <div className="image-static">
-              <img 
-                src={introImage} 
-                alt="Digital Success" 
-                className="intro-main-image"
-              />
-            </div>
-            <div className="image-overlay-text">
-              {/* <span>Innovation</span>
-              <span>Excellence</span>
-              <span>Growth</span> */}
-            </div>
-          {/* </div> */}
+          <div className="intro-image-container">
+            <img 
+              src={introImage} 
+              alt="Digital Success" 
+              className="intro-main-image"
+            />
+          </div>
         </motion.div>
       </div>
     </div>
   );
 };
 
-// Section 3: Core Services - Zig-Zag Layout with Local Images
+// Section 3: Core Services - Zig-Zag Layout with Local Images - No Hover Effects
 const CoreServicesSection = () => {
   const navigate = useNavigate();
   
@@ -588,11 +565,9 @@ const CoreServicesSection = () => {
               <span className="service-category" style={{ color: service.color }}>{service.title}</span>
               <h3>{service.title}</h3>
               <p>{service.description}</p>
-              <motion.button 
+              <button 
                 className="read-more-btn"
                 style={{ borderColor: service.color, color: service.color }}
-                whileHover={{ backgroundColor: service.color, color: '#0B0F14', x: 5 }}
-                transition={{ duration: 0.2 }}
                 onClick={() => {
                   navigate(service.path);
                   window.scrollTo(0, 0);
@@ -600,7 +575,7 @@ const CoreServicesSection = () => {
               >
                 Read More
                 <span className="btn-arrow">→</span>
-              </motion.button>
+              </button>
             </div>
           </motion.div>
         ))}
@@ -609,7 +584,7 @@ const CoreServicesSection = () => {
   );
 };
 
-// Section 4: Digital Marketing Strategies - Vertical Timeline with Perfect Button
+// Section 4: Digital Marketing Strategies - Vertical Timeline - No Hover Effects
 const MarketingStrategiesSection = () => {
   const navigate = useNavigate();
   
@@ -684,11 +659,8 @@ const MarketingStrategiesSection = () => {
         transition={{ duration: 0.5, delay: 0.6 }}
         viewport={{ once: true }}
       >
-        <motion.button 
+        <button 
           className="btn-digital-marketing"
-          whileHover={{ scale: 1.05, backgroundColor: '#C6FF00', color: '#000000' }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.2 }}
           onClick={() => {
             navigate('/digital-marketing');
             window.scrollTo(0, 0);
@@ -696,82 +668,13 @@ const MarketingStrategiesSection = () => {
         >
           Learn More About Digital Marketing
           <span className="btn-arrow">→</span>
-        </motion.button>
+        </button>
       </motion.div>
     </div>
   );
 };
 
-// Section 5: Technologies & Tools - Horizontal Scroll (Commented out)
-const TechnologiesSection = () => {
-  const technologies = [
-    { name: 'React', icon: '⚛️', level: 'Expert', color: '#61DAFB' },
-    { name: 'Node.js', icon: '🟢', level: 'Expert', color: '#68A063' },
-    { name: 'JavaScript', icon: '📜', level: 'Expert', color: '#F7DF1E' },
-    { name: 'TypeScript', icon: '📘', level: 'Advanced', color: '#3178C6' },
-    { name: 'Python', icon: '🐍', level: 'Advanced', color: '#3776AB' },
-    { name: 'React Native', icon: '📱', level: 'Expert', color: '#61DAFB' },
-    { name: 'Next.js', icon: '▲', level: 'Advanced', color: '#000000' },
-    { name: 'Cloud Platforms', icon: '☁️', level: 'Advanced', color: '#FF9900' },
-    { name: 'SEO Tools', icon: '🔍', level: 'Expert', color: '#C6FF00' },
-    { name: 'Google Ads', icon: '📊', level: 'Expert', color: '#4285F4' },
-    { name: 'Analytics', icon: '📈', level: 'Advanced', color: '#E37400' },
-    { name: 'MongoDB', icon: '🍃', level: 'Intermediate', color: '#47A248' },
-    { name: 'PostgreSQL', icon: '🐘', level: 'Advanced', color: '#336791' },
-    { name: 'Docker', icon: '🐳', level: 'Advanced', color: '#2496ED' },
-    { name: 'AWS', icon: '☁️', level: 'Advanced', color: '#FF9900' },
-    { name: 'Figma', icon: '🎨', level: 'Expert', color: '#F24E1E' },
-    { name: 'Adobe XD', icon: '🎨', level: 'Advanced', color: '#FF61F6' },
-    { name: 'Shopify', icon: '🛍️', level: 'Expert', color: '#7AB55C' },
-    { name: 'WordPress', icon: '📝', level: 'Expert', color: '#21759B' },
-    { name: 'GraphQL', icon: '📊', level: 'Advanced', color: '#E10098' }
-  ];
-
-  return (
-    <div className="technologies-section">
-      <div className="section-header">
-        <span className="section-badge">OUR TECH STACK</span>
-        <h2 className="section-title">Technologies & <span className="gradient-text">Tools</span></h2>
-        <p className="section-subtitle">Modern tools and platforms we use to build exceptional digital solutions</p>
-      </div>
-
-      <div className="tech-scroll-container">
-        <div className="tech-track">
-          {technologies.map((tech, index) => (
-            <motion.div 
-              key={index} 
-              className="tech-item"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="tech-icon" style={{ background: `${tech.color}20` }}>
-                <span style={{ color: tech.color }}>{tech.icon}</span>
-              </div>
-              <h4>{tech.name}</h4>
-              <span className="tech-level" style={{ background: `${tech.color}20`, color: tech.color }}>{tech.level}</span>
-            </motion.div>
-          ))}
-          {technologies.map((tech, index) => (
-            <motion.div 
-              key={`duplicate-${index}`} 
-              className="tech-item"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="tech-icon" style={{ background: `${tech.color}20` }}>
-                <span style={{ color: tech.color }}>{tech.icon}</span>
-              </div>
-              <h4>{tech.name}</h4>
-              <span className="tech-level" style={{ background: `${tech.color}20`, color: tech.color }}>{tech.level}</span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Section 6: Project Development Process - Step Layout
+// Section 5: Project Development Process - Step Layout - No Hover Effects
 const ProcessSection = () => {
   const steps = [
     { number: '01', title: 'Research', description: 'Understanding your business goals, target audience, and market opportunities.', icon: '🔍' },
@@ -800,7 +703,6 @@ const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ y: -5 }}
           >
             <div className="step-number">{step.number}</div>
             <div className="step-icon">{step.icon}</div>
@@ -813,7 +715,7 @@ const ProcessSection = () => {
   );
 };
 
-// Section 7: Client Success Stories - Storytelling Layout
+// Section 6: Client Success Stories - No Hover Effects
 const SuccessStoriesSection = () => {
   const navigate = useNavigate();
   
@@ -865,7 +767,6 @@ const SuccessStoriesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ y: -5 }}
             onClick={() => {
               navigate(story.path);
               window.scrollTo(0, 0);
@@ -884,7 +785,7 @@ const SuccessStoriesSection = () => {
   );
 };
 
-// Section 8: Industries We Serve - Horizontal Scroll
+// Section 7: Industries We Serve - Horizontal Scroll - No Hover Effects
 const IndustriesSection = () => {
   const industries = [
     { name: 'E-commerce', icon: '🛍️', description: 'Online retail & marketplaces' },
@@ -912,32 +813,22 @@ const IndustriesSection = () => {
       <div className="industries-scroll">
         <div className="industries-track">
           {industries.map((industry, index) => (
-            <motion.div 
-              key={index} 
-              className="industry-item"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div key={index} className="industry-item">
               <span className="industry-icon">{industry.icon}</span>
               <div className="industry-info">
                 <h4>{industry.name}</h4>
                 <p>{industry.description}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
           {industries.map((industry, index) => (
-            <motion.div 
-              key={`duplicate-${index}`} 
-              className="industry-item"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div key={`duplicate-${index}`} className="industry-item">
               <span className="industry-icon">{industry.icon}</span>
               <div className="industry-info">
                 <h4>{industry.name}</h4>
                 <p>{industry.description}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -945,7 +836,7 @@ const IndustriesSection = () => {
   );
 };
 
-// Section 9: Let's Partner Section
+// Section 8: Let's Partner Section - No Hover Effects
 const PartnerSection = () => {
   const navigate = useNavigate();
 
@@ -992,7 +883,6 @@ const PartnerSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ y: -5 }}
             >
               <div className="benefit-icon">{benefit.icon}</div>
               <h3>{benefit.title}</h3>
@@ -1011,35 +901,15 @@ const PartnerSection = () => {
           <div className="cta-box">
             <h3>Ready to start your journey?</h3>
             <p>Let's discuss how we can work together to achieve your goals.</p>
-            <motion.button 
+            <button 
               className="partner-cta-btn"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
               onClick={() => navigate('/contact')}
             >
               Schedule a Consultation
               <span className="btn-arrow">→</span>
-            </motion.button>
+            </button>
           </div>
         </motion.div>
-
-        <div className="partner-testimonial">
-          <motion.div 
-            className="testimonial-quote"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            viewport={{ once: true }}
-          >
-            <div className="quote-mark">"</div>
-            <p>Partnering with Nexonic has been transformative for our business. Their expertise and dedication helped us achieve results we never thought possible.</p>
-            <div className="quote-author">
-              <span className="author-name">Michael Chen</span>
-              <span className="author-title">CEO, TechFlow</span>
-            </div>
-          </motion.div>
-        </div>
       </div>
     </div>
   );
@@ -1066,11 +936,6 @@ const Services = () => {
       <Section className="services-section strategies-wrapper">
         <MarketingStrategiesSection />
       </Section>
-
-      {/* Technologies Section - Commented out as requested */}
-      {/* <Section className="services-section technologies-wrapper">
-        <TechnologiesSection />
-      </Section> */}
 
       <Section className="services-section process-wrapper">
         <ProcessSection />
